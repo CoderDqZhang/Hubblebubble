@@ -1,0 +1,6 @@
+framework module Pods_Hubblebubble {
+  umbrella header "Pods-Hubblebubble-umbrella.h"
+
+  export *
+  module * { export * }
+}
