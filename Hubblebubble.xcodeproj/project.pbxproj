@@ -34,6 +34,9 @@
 		1F5EC9E820A14CA200282110 /* HubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9E720A14CA200282110 /* HubbleTableViewCell.swift */; };
 		1F5EC9EB20A14F2900282110 /* HubbleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9EA20A14F2900282110 /* HubbleViewModel.swift */; };
 		1F5EC9ED20A14F7A00282110 /* AloneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9EC20A14F7A00282110 /* AloneViewModel.swift */; };
+		1F5EC9EF20A187C200282110 /* ArticlePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9EE20A187C200282110 /* ArticlePageViewController.swift */; };
+		1F5EC9F220A1890900282110 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9F120A1890900282110 /* ArticleViewModel.swift */; };
+		1F5EC9F520A1897700282110 /* ArticleHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9F420A1897700282110 /* ArticleHeaderTableViewCell.swift */; };
 		1F6B4B8C209FE3E9007F355C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B4B8B209FE3E9007F355C /* AppDelegate.swift */; };
 		1F6B4B8E209FE3E9007F355C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B4B8D209FE3E9007F355C /* ViewController.swift */; };
 		1F6B4B93209FE3EA007F355C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B4B92209FE3EA007F355C /* Assets.xcassets */; };
@@ -135,6 +138,9 @@
 		1F5EC9E720A14CA200282110 /* HubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubbleTableViewCell.swift; sourceTree = "<group>"; };
 		1F5EC9EA20A14F2900282110 /* HubbleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubbleViewModel.swift; sourceTree = "<group>"; };
 		1F5EC9EC20A14F7A00282110 /* AloneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AloneViewModel.swift; sourceTree = "<group>"; };
+		1F5EC9EE20A187C200282110 /* ArticlePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePageViewController.swift; sourceTree = "<group>"; };
+		1F5EC9F120A1890900282110 /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
+		1F5EC9F420A1897700282110 /* ArticleHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		1F6B4B88209FE3E9007F355C /* Hubblebubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hubblebubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6B4B8B209FE3E9007F355C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F6B4B8D209FE3E9007F355C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -360,14 +366,30 @@
 			path = hubble;
 			sourceTree = "<group>";
 		};
+		1F5EC9F020A188ED00282110 /* article */ = {
+			isa = PBXGroup;
+			children = (
+				1F5EC9F120A1890900282110 /* ArticleViewModel.swift */,
+			);
+			path = article;
+			sourceTree = "<group>";
+		};
+		1F5EC9F320A1895A00282110 /* article */ = {
+			isa = PBXGroup;
+			children = (
+				1F5EC9F420A1897700282110 /* ArticleHeaderTableViewCell.swift */,
+			);
+			path = article;
+			sourceTree = "<group>";
+		};
 		1F6B4B7F209FE3E9007F355C = {
 			isa = PBXGroup;
 			children = (
-				1F6B4BAA209FE43F007F355C /* Controller */,
 				1F6B4BA7209FE43F007F355C /* Gloable */,
+				1F6B4BAA209FE43F007F355C /* Controller */,
+				1F6B4BA9209FE43F007F355C /* ViewModel */,
 				1F6B4BAB209FE43F007F355C /* Model */,
 				1F6B4BA8209FE43F007F355C /* View */,
-				1F6B4BA9209FE43F007F355C /* ViewModel */,
 				1F6B4B8A209FE3E9007F355C /* Hubblebubble */,
 				1F6B4B89209FE3E9007F355C /* Products */,
 				FFFC3C4296E027005C1ADBA8 /* Pods */,
@@ -419,6 +441,7 @@
 		1F6B4BA8209FE43F007F355C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1F5EC9F320A1895A00282110 /* article */,
 				1F5EC9E620A14C8500282110 /* hubble */,
 				1F5EC9B920A1283400282110 /* home */,
 			);
@@ -428,6 +451,7 @@
 		1F6B4BA9209FE43F007F355C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1F5EC9F020A188ED00282110 /* article */,
 				1F5EC9E920A14F0F00282110 /* hubble */,
 				1F5EC9CD20A12F2F00282110 /* home */,
 				1F6B4BCB209FFE13007F355C /* base */,
@@ -487,6 +511,7 @@
 			isa = PBXGroup;
 			children = (
 				1F6B4BBB209FE535007F355C /* ArticleViewController.swift */,
+				1F5EC9EE20A187C200282110 /* ArticlePageViewController.swift */,
 			);
 			path = article;
 			sourceTree = "<group>";
@@ -908,6 +933,7 @@
 				1F6B4C4F209FFFE8007F355C /* TADotView.m in Sources */,
 				1F5EC9C420A1291900282110 /* AnimationTouchViewButton.swift in Sources */,
 				1F6B4BF1209FFFA8007F355C /* NSTimer.swift in Sources */,
+				1F5EC9F520A1897700282110 /* ArticleHeaderTableViewCell.swift in Sources */,
 				1F6B4BDA209FFF8E007F355C /* ShareTools.swift in Sources */,
 				1F6B4BC7209FFDE5007F355C /* AppThemeTool.swift in Sources */,
 				1F6B4C0C209FFFAD007F355C /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
@@ -933,9 +959,11 @@
 				1F6B4C4A209FFFE8007F355C /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				1F5EC9BE20A1290600282110 /* Gloable+View.swift in Sources */,
 				1F6B4BBE209FE541007F355C /* GoodsViewController.swift in Sources */,
+				1F5EC9F220A1890900282110 /* ArticleViewModel.swift in Sources */,
 				1F5EC9CB20A12B0500282110 /* UILabel+Extentions.swift in Sources */,
 				1F6B4BC9209FFDE5007F355C /* ShareManager.swift in Sources */,
 				1F5EC9DF20A1444300282110 /* TYTabTitleViewCell.m in Sources */,
+				1F5EC9EF20A187C200282110 /* ArticlePageViewController.swift in Sources */,
 				1F5EC9C820A1296800282110 /* AnimationView.swift in Sources */,
 				1F5EC9ED20A14F7A00282110 /* AloneViewModel.swift in Sources */,
 				1F6B4BD8209FFF8E007F355C /* ScalImageManager.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  HubblePageViewController.swift
+//  ArticlePageViewController.swift
 //  Hubblebubble
 //
 //  Created by Zhang on 2018/5/8.
@@ -8,17 +8,15 @@
 
 import UIKit
 
-let kCollectionLayoutEdging:CGFloat = (SCREENWIDTH - 100) / 5 
-let kCellSpacing:CGFloat = (SCREENWIDTH - 100) / 2
-
-class HubblePageViewController: TYTabButtonPagerController {
+class ArticlePageViewController: TYTabButtonPagerController {
 
     var index:Int = 0
-    var pageTitle = ["好多气泡","孤独气泡"]
-    var controllers = [HubbleViewController(),AloneViewController()]
+    var pageTitle = ["热门","美鞋","上衣","热裤","裙子","短袖","袜子"]
+    var controllers = [ArticleViewController(),ArticleViewController(),ArticleViewController(),ArticleViewController(),ArticleViewController(),ArticleViewController(),ArticleViewController(),]
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "气泡"
+
+        self.navigationItem.title = "美文"
         self.setUpNavigationItem()
         self.setUpPageViewControllerStyle()
         self.setUpView()
@@ -27,9 +25,9 @@ class HubblePageViewController: TYTabButtonPagerController {
     }
     
     func setUpPageViewControllerStyle(){
-        self.collectionLayoutEdging = kCollectionLayoutEdging
+        self.collectionLayoutEdging = 10
         self.pagerBarColor = UIColor.init(hexString: App_Theme_6D4033_Color)
-        self.cellSpacing = kCellSpacing
+        self.cellSpacing = 10
         self.cellEdging = 10
         self.progressHeight = 2
         self.progressEdging = 0
@@ -47,7 +45,7 @@ class HubblePageViewController: TYTabButtonPagerController {
     }
     
     func bindViewModel(){
-//        viewModel.requestCategotyDic(self,index:index)
+        //        viewModel.requestCategotyDic(self,index:index)
     }
     
     func setUpNavigationItem() {
@@ -86,7 +84,7 @@ class HubblePageViewController: TYTabButtonPagerController {
     
     // MARK: - TYTabButtonDataSource
     override func numberOfControllersInPagerController() -> Int {
-        return 2
+        return pageTitle.count
     }
     
     override func pagerController(_ pagerController: TYPagerController!, transitionFrom fromIndex: Int, to toIndex: Int, animated: Bool) {
@@ -101,5 +99,4 @@ class HubblePageViewController: TYTabButtonPagerController {
     override func pagerController(_ pagerController: TYPagerController!, controllerFor index: Int) -> UIViewController! {
         return controllers[index]
     }
-    
 }

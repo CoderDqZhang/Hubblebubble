@@ -12,7 +12,8 @@ class ArticleViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.bindViewModel(viewModel: ArticleViewModel(), controller: self)
+        self.setUpTableView(style: .grouped, cells: [ReCommendTableViewCell.self,ArticleHeaderTableViewCell.self], controller: self)
         // Do any additional setup after loading the view.
     }
 
