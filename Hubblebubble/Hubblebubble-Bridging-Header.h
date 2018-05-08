@@ -22,7 +22,10 @@
 #import "WXApi.h"
 #import "WeiboSDK.h"
 #import "JKDBModel.h"
-//#import <TencentOpenAPI/TencentOAuth.h>
-//#import <TencentOpenAPI/QQApiInterface.h>
+#import "UILabel+ChangeLineSpaceAndWordSpace.h"
+#import "NSString+Utils.h"
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+
 
 #endif /* Hubblebubble_Bridging_Header_h */

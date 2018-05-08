@@ -16,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let rootViewController = UINavigationController.init(rootViewController: MainTabBarController())
+        AppleThemeTool.setUpToolBarColor()
+        AppleThemeTool.setUpKeyBoardManager()
+        let rootViewController = MainTabBarController()
         self.window?.rootViewController = rootViewController
         self.window?.makeKeyAndVisible()
         

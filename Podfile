@@ -19,5 +19,6 @@ target 'Hubblebubble' do
   pod 'IQKeyboardManagerSwift'
   pod 'NIMSDK'
   pod 'DZNEmptyDataSet'
+  pod 'pop'
   
 end

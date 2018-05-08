@@ -12,9 +12,16 @@ class HomeViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.bindViewModel(viewModel: HomeViewModel(), controller: self)
+        self.setUpTableView(style: .plain, cells: [ReCommendTableViewCell.self], controller: self)
+        self.navigationItem.title = "心情推荐"
         // Do any additional setup after loading the view.
     }
+    
+    override func setUpViewNavigationItem() {
+        self.navigationItem.title = "心情推荐"
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

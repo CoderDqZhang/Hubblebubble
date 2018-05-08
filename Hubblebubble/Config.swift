@@ -11,10 +11,10 @@ import UIKit
 
 let App_Theme_FFFFFF_Color = "FFFFFF"
 let App_Theme_6D4033_Color = "6D4033"
-let App_Theme_222222_Color = "222222"
+let App_Theme_ABACAE_Color = "ABACAE"
 let App_Theme_333333_Color = "333333"
-let App_Theme_888888_Color = "888888"
-let App_Theme_444444_Color = "444444"
+let App_Theme_FB0B89_Color = "FB0B89"
+let App_Theme_CACBCC_Color = "CACBCC"
 let App_Theme_666666_Color = "666666"
 let App_Theme_F94856_Color = "F94856"
 let App_Theme_BBC1CB_Color = "BBC1CB"

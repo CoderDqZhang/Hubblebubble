@@ -7,7 +7,7 @@
 //
 
 import UIKit
-/*
+
 class ShareTools: NSObject, TencentSessionDelegate, TencentLoginDelegate {
     
     var tencentOAuth:TencentOAuth!
@@ -137,4 +137,3 @@ class ShareTools: NSObject, TencentSessionDelegate, TencentLoginDelegate {
         
     }
 }
- */

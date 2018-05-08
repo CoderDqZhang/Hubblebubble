@@ -58,6 +58,9 @@ class BaseViewController: UIViewController {
     func setUpLogic(){
     }
     
+    func setNavigationTitle(title:String){
+        self.navigationItem.title = title
+    }
     
     func setUpTableView(style:UITableViewStyle, cells:[AnyClass], controller:UIViewController?){
         tableView = UITableView.init(frame: CGRect.zero, style: style)
@@ -66,7 +69,7 @@ class BaseViewController: UIViewController {
         }
         if #available(iOS 11.0, *) {
             tableView.contentInsetAdjustmentBehavior = .never
-            tableView.contentInset = UIEdgeInsetsMake(64, 0, 49, 0)
+            tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
             tableView.scrollIndicatorInsets = tableView.contentInset
         }
         self.tableView.contentInset.top = 0

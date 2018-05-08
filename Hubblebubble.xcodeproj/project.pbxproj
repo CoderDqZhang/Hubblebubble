@@ -14,9 +14,19 @@
 		1F5EC9B320A017E900282110 /* JKDBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9AF20A017E900282110 /* JKDBModel.m */; };
 		1F5EC9B420A017E900282110 /* JKDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9B020A017E900282110 /* JKDBHelper.m */; };
 		1F5EC9B720A019E400282110 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9B620A019E400282110 /* UserInfoModel.swift */; };
+		1F5EC9BB20A1285C00282110 /* ReCommendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9BA20A1285C00282110 /* ReCommendTableViewCell.swift */; };
+		1F5EC9BE20A1290600282110 /* Gloable+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9BD20A1290600282110 /* Gloable+View.swift */; };
+		1F5EC9C120A1291300282110 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9BF20A1291300282110 /* ShareView.swift */; };
+		1F5EC9C220A1291300282110 /* GestureRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9C020A1291300282110 /* GestureRecognizerManager.swift */; };
+		1F5EC9C420A1291900282110 /* AnimationTouchViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9C320A1291900282110 /* AnimationTouchViewButton.swift */; };
+		1F5EC9C620A1292300282110 /* GloableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9C520A1292300282110 /* GloableTableViewCell.swift */; };
+		1F5EC9C820A1296800282110 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9C720A1296800282110 /* AnimationView.swift */; };
+		1F5EC9CB20A12B0500282110 /* UILabel+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9CA20A12B0500282110 /* UILabel+Extentions.swift */; };
+		1F5EC9CF20A12F4A00282110 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9CE20A12F4A00282110 /* HomeViewModel.swift */; };
+		1F5EC9D120A132E500282110 /* AnimationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9D020A132E500282110 /* AnimationTools.swift */; };
+		1F5EC9D320A1415E00282110 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F5EC9D220A1415D00282110 /* Main.storyboard */; };
 		1F6B4B8C209FE3E9007F355C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B4B8B209FE3E9007F355C /* AppDelegate.swift */; };
 		1F6B4B8E209FE3E9007F355C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B4B8D209FE3E9007F355C /* ViewController.swift */; };
-		1F6B4B91209FE3E9007F355C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B4B8F209FE3E9007F355C /* Main.storyboard */; };
 		1F6B4B93209FE3EA007F355C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B4B92209FE3EA007F355C /* Assets.xcassets */; };
 		1F6B4B96209FE3EA007F355C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B4B94209FE3EA007F355C /* LaunchScreen.storyboard */; };
 		1F6B4BB3209FE4E5007F355C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B4BB2209FE4E5007F355C /* MainTabBarController.swift */; };
@@ -91,10 +101,20 @@
 		1F5EC9B120A017E900282110 /* JKDBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKDBModel.h; sourceTree = "<group>"; };
 		1F5EC9B220A017E900282110 /* JKDBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKDBHelper.h; sourceTree = "<group>"; };
 		1F5EC9B620A019E400282110 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
+		1F5EC9BA20A1285C00282110 /* ReCommendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReCommendTableViewCell.swift; sourceTree = "<group>"; };
+		1F5EC9BD20A1290600282110 /* Gloable+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gloable+View.swift"; sourceTree = "<group>"; };
+		1F5EC9BF20A1291300282110 /* ShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		1F5EC9C020A1291300282110 /* GestureRecognizerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureRecognizerManager.swift; sourceTree = "<group>"; };
+		1F5EC9C320A1291900282110 /* AnimationTouchViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationTouchViewButton.swift; sourceTree = "<group>"; };
+		1F5EC9C520A1292300282110 /* GloableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GloableTableViewCell.swift; sourceTree = "<group>"; };
+		1F5EC9C720A1296800282110 /* AnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
+		1F5EC9CA20A12B0500282110 /* UILabel+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extentions.swift"; sourceTree = "<group>"; };
+		1F5EC9CE20A12F4A00282110 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		1F5EC9D020A132E500282110 /* AnimationTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationTools.swift; sourceTree = "<group>"; };
+		1F5EC9D220A1415D00282110 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1F6B4B88209FE3E9007F355C /* Hubblebubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hubblebubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6B4B8B209FE3E9007F355C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F6B4B8D209FE3E9007F355C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1F6B4B90209FE3E9007F355C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F6B4B92209FE3EA007F355C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F6B4B95209FE3EA007F355C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F6B4B97209FE3EA007F355C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -255,6 +275,35 @@
 			path = mine;
 			sourceTree = "<group>";
 		};
+		1F5EC9B920A1283400282110 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				1F5EC9BA20A1285C00282110 /* ReCommendTableViewCell.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		1F5EC9BC20A128EC00282110 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1F5EC9BF20A1291300282110 /* ShareView.swift */,
+				1F5EC9C020A1291300282110 /* GestureRecognizerManager.swift */,
+				1F5EC9BD20A1290600282110 /* Gloable+View.swift */,
+				1F5EC9C320A1291900282110 /* AnimationTouchViewButton.swift */,
+				1F5EC9C520A1292300282110 /* GloableTableViewCell.swift */,
+				1F5EC9C720A1296800282110 /* AnimationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1F5EC9CD20A12F2F00282110 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				1F5EC9CE20A12F4A00282110 /* HomeViewModel.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
 		1F6B4B7F209FE3E9007F355C = {
 			isa = PBXGroup;
 			children = (
@@ -288,8 +337,8 @@
 				1F6B4BC1209FFDE5007F355C /* Config.swift */,
 				1F6B4BC3209FFDE5007F355C /* Define.swift */,
 				1F6B4BC5209FFDE5007F355C /* RequestUrl.swift */,
+				1F5EC9D220A1415D00282110 /* Main.storyboard */,
 				1F5EC99E20A0080200282110 /* Hubblebubble-Bridging-Header.h */,
-				1F6B4B8F209FE3E9007F355C /* Main.storyboard */,
 				1F6B4B92209FE3EA007F355C /* Assets.xcassets */,
 				1F6B4B94209FE3EA007F355C /* LaunchScreen.storyboard */,
 				1F6B4B97209FE3EA007F355C /* Info.plist */,
@@ -300,6 +349,7 @@
 		1F6B4BA7209FE43F007F355C /* Gloable */ = {
 			isa = PBXGroup;
 			children = (
+				1F5EC9BC20A128EC00282110 /* View */,
 				1F6B4C25209FFFD6007F355C /* Lib */,
 				1F6B4C14209FFFB7007F355C /* Uti */,
 				1F6B4BF5209FFFAD007F355C /* Category */,
@@ -313,6 +363,7 @@
 		1F6B4BA8209FE43F007F355C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1F5EC9B920A1283400282110 /* home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -320,6 +371,7 @@
 		1F6B4BA9209FE43F007F355C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1F5EC9CD20A12F2F00282110 /* home */,
 				1F6B4BCB209FFE13007F355C /* base */,
 			);
 			path = ViewModel;
@@ -419,6 +471,7 @@
 				1F6B4BD4209FFF8E007F355C /* ShareTools.swift */,
 				1F6B4BD3209FFF8D007F355C /* Tools.swift */,
 				1F6B4BD0209FFF8D007F355C /* UIImageViewManger.swift */,
+				1F5EC9D020A132E500282110 /* AnimationTools.swift */,
 			);
 			path = tools;
 			sourceTree = "<group>";
@@ -445,6 +498,7 @@
 				1F6B4BE7209FFFA8007F355C /* UITapGestureRecognizer+Extention.swift */,
 				1F6B4BE8209FFFA8007F355C /* DispatchQueueExtentions.swift */,
 				1F6B4BE9209FFFA8007F355C /* AlertControl+Tools.swift */,
+				1F5EC9CA20A12B0500282110 /* UILabel+Extentions.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -657,7 +711,7 @@
 				1F5EC9AC20A0091500282110 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				1F6B4B96209FE3EA007F355C /* LaunchScreen.storyboard in Resources */,
 				1F6B4B93209FE3EA007F355C /* Assets.xcassets in Resources */,
-				1F6B4B91209FE3E9007F355C /* Main.storyboard in Resources */,
+				1F5EC9D320A1415E00282110 /* Main.storyboard in Resources */,
 				1F6B4C23209FFFC7007F355C /* WeiboSDK.bundle in Resources */,
 				1F5EC9AA20A0091500282110 /* README.txt in Resources */,
 			);
@@ -723,6 +777,7 @@
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -740,6 +795,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -766,9 +822,11 @@
 				1F6B4C49209FFFE8007F355C /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				1F6B4C47209FFFE8007F355C /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				1F6B4BD6209FFF8E007F355C /* UIImageViewManger.swift in Sources */,
+				1F5EC9C120A1291300282110 /* ShareView.swift in Sources */,
 				1F6B4BC0209FE549007F355C /* MineViewController.swift in Sources */,
 				1F5EC9B720A019E400282110 /* UserInfoModel.swift in Sources */,
 				1F6B4C10209FFFAD007F355C /* UIViewController+DismissKeyboard.m in Sources */,
+				1F5EC9CF20A12F4A00282110 /* HomeViewModel.swift in Sources */,
 				1F6B4BBC209FE535007F355C /* ArticleViewController.swift in Sources */,
 				1F6B4C52209FFFE8007F355C /* TAAbstractDotView.m in Sources */,
 				1F6B4BEA209FFFA8007F355C /* UIPageControlExtentions.swift in Sources */,
@@ -784,6 +842,7 @@
 				1F6B4BC6209FFDE5007F355C /* Config.swift in Sources */,
 				1F6B4BB3209FE4E5007F355C /* MainTabBarController.swift in Sources */,
 				1F6B4C4F209FFFE8007F355C /* TADotView.m in Sources */,
+				1F5EC9C420A1291900282110 /* AnimationTouchViewButton.swift in Sources */,
 				1F6B4BF1209FFFA8007F355C /* NSTimer.swift in Sources */,
 				1F6B4BDA209FFF8E007F355C /* ShareTools.swift in Sources */,
 				1F6B4BC7209FFDE5007F355C /* AppThemeTool.swift in Sources */,
@@ -791,18 +850,25 @@
 				1F6B4BF4209FFFA8007F355C /* AlertControl+Tools.swift in Sources */,
 				1F6B4C0D209FFFAD007F355C /* NSDate+LSCore.m in Sources */,
 				1F6B4C50209FFFE8007F355C /* TAPageControl.m in Sources */,
+				1F5EC9C220A1291300282110 /* GestureRecognizerManager.swift in Sources */,
 				1F6B4BCD209FFE28007F355C /* BaseViewModel.swift in Sources */,
 				1F6B4BDD209FFFA2007F355C /* BaseNetWorke.swift in Sources */,
 				1F6B4BEF209FFFA8007F355C /* UIViewController+NavigationBar.swift in Sources */,
 				1F6B4BF0209FFFA8007F355C /* UIImage+Crop.swift in Sources */,
 				1F6B4BED209FFFA8007F355C /* View+Extntion.swift in Sources */,
+				1F5EC9C620A1292300282110 /* GloableTableViewCell.swift in Sources */,
 				1F6B4C4B209FFFE8007F355C /* CountDown.m in Sources */,
 				1F6B4BD7209FFF8E007F355C /* CacheTools.swift in Sources */,
 				1F6B4C51209FFFE8007F355C /* TAAnimatedDotView.m in Sources */,
+				1F5EC9BB20A1285C00282110 /* ReCommendTableViewCell.swift in Sources */,
+				1F5EC9D120A132E500282110 /* AnimationTools.swift in Sources */,
 				1F6B4BC8209FFDE5007F355C /* Define.swift in Sources */,
 				1F6B4C4A209FFFE8007F355C /* UITableView+FDIndexPathHeightCache.m in Sources */,
+				1F5EC9BE20A1290600282110 /* Gloable+View.swift in Sources */,
 				1F6B4BBE209FE541007F355C /* GoodsViewController.swift in Sources */,
+				1F5EC9CB20A12B0500282110 /* UILabel+Extentions.swift in Sources */,
 				1F6B4BC9209FFDE5007F355C /* ShareManager.swift in Sources */,
+				1F5EC9C820A1296800282110 /* AnimationView.swift in Sources */,
 				1F6B4BD8209FFF8E007F355C /* ScalImageManager.swift in Sources */,
 				1F6B4BF3209FFFA8007F355C /* DispatchQueueExtentions.swift in Sources */,
 				1F6B4BD9209FFF8E007F355C /* Tools.swift in Sources */,
@@ -817,14 +883,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1F6B4B8F209FE3E9007F355C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1F6B4B90209FE3E9007F355C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1F6B4B94209FE3EA007F355C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -20,10 +20,10 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         let homeNav = self.createNavigationItem(viewController: homeView, title: "推荐", image: UIImage.init(named: "推荐")!)
-        let hubbleNav = self.createNavigationItem(viewController: homeView, title: "气泡", image: UIImage.init(named: "气泡")!)
-        let articleNav = self.createNavigationItem(viewController: homeView, title: "美文", image: UIImage.init(named: "文章")!)
-        let goodsNav = self.createNavigationItem(viewController: homeView, title: "美物", image: UIImage.init(named: "产品")!)
-        let mineNav = self.createNavigationItem(viewController: homeView, title: "我的", image: UIImage.init(named: "个人中心")!)
+        let hubbleNav = self.createNavigationItem(viewController: hubbleView, title: "气泡", image: UIImage.init(named: "气泡")!)
+        let articleNav = self.createNavigationItem(viewController: articleView, title: "美文", image: UIImage.init(named: "文章")!)
+        let goodsNav = self.createNavigationItem(viewController: goodsView, title: "美物", image: UIImage.init(named: "产品")!)
+        let mineNav = self.createNavigationItem(viewController: mineView, title: "我的", image: UIImage.init(named: "个人中心")!)
         
         self.viewControllers = [homeNav,hubbleNav,articleNav,goodsNav,mineNav]
         // Do any additional setup after loading the view.
@@ -32,9 +32,9 @@ class MainTabBarController: UITabBarController {
     
     func createNavigationItem(viewController:BaseViewController, title:String, image:UIImage) ->UINavigationController{
         let navigationController = UINavigationController.init(rootViewController: viewController)
-        navigationController.tabBarItem.title = title
-        navigationController.tabBarItem.image = image
-        navigationController.navigationItem.title = title
+        viewController.tabBarItem.title = title
+        viewController.navigationItem.title = title
+        viewController.tabBarItem.image = image
         return navigationController
     }
 
