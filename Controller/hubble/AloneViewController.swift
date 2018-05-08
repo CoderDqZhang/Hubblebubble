@@ -1,19 +1,19 @@
 //
-//  HubbleViewController.swift
+//  AloneViewController.swift
 //  Hubblebubble
 //
-//  Created by Zhang on 2018/5/7.
+//  Created by Zhang on 2018/5/8.
 //  Copyright © 2018 Zhang. All rights reserved.
 //
 
 import UIKit
 
-class HubbleViewController: BaseViewController {
+class AloneViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.bindViewModel(viewModel: HubbleViewModel(), controller: self)
+        self.bindViewModel(viewModel: AloneViewModel(), controller: self)
         self.setUpTableView(style: .grouped, cells: [HubbleTableViewCell.self], controller: self)
         // Do any additional setup after loading the view.
     }

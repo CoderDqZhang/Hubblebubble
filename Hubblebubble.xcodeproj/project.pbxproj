@@ -25,6 +25,15 @@
 		1F5EC9CF20A12F4A00282110 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9CE20A12F4A00282110 /* HomeViewModel.swift */; };
 		1F5EC9D120A132E500282110 /* AnimationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9D020A132E500282110 /* AnimationTools.swift */; };
 		1F5EC9D320A1415E00282110 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F5EC9D220A1415D00282110 /* Main.storyboard */; };
+		1F5EC9DE20A1444300282110 /* TYPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9D520A1444300282110 /* TYPagerController.m */; };
+		1F5EC9DF20A1444300282110 /* TYTabTitleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9D620A1444300282110 /* TYTabTitleViewCell.m */; };
+		1F5EC9E020A1444300282110 /* TYTabButtonPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9D820A1444300282110 /* TYTabButtonPagerController.m */; };
+		1F5EC9E120A1444300282110 /* TYTabPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9DB20A1444300282110 /* TYTabPagerController.m */; };
+		1F5EC9E320A1450000282110 /* HubblePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9E220A1450000282110 /* HubblePageViewController.swift */; };
+		1F5EC9E520A1471300282110 /* AloneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9E420A1471300282110 /* AloneViewController.swift */; };
+		1F5EC9E820A14CA200282110 /* HubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9E720A14CA200282110 /* HubbleTableViewCell.swift */; };
+		1F5EC9EB20A14F2900282110 /* HubbleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9EA20A14F2900282110 /* HubbleViewModel.swift */; };
+		1F5EC9ED20A14F7A00282110 /* AloneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC9EC20A14F7A00282110 /* AloneViewModel.swift */; };
 		1F6B4B8C209FE3E9007F355C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B4B8B209FE3E9007F355C /* AppDelegate.swift */; };
 		1F6B4B8E209FE3E9007F355C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B4B8D209FE3E9007F355C /* ViewController.swift */; };
 		1F6B4B93209FE3EA007F355C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B4B92209FE3EA007F355C /* Assets.xcassets */; };
@@ -112,6 +121,20 @@
 		1F5EC9CE20A12F4A00282110 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		1F5EC9D020A132E500282110 /* AnimationTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationTools.swift; sourceTree = "<group>"; };
 		1F5EC9D220A1415D00282110 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1F5EC9D520A1444300282110 /* TYPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPagerController.m; sourceTree = "<group>"; };
+		1F5EC9D620A1444300282110 /* TYTabTitleViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTabTitleViewCell.m; sourceTree = "<group>"; };
+		1F5EC9D720A1444300282110 /* TYTabPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabPagerController.h; sourceTree = "<group>"; };
+		1F5EC9D820A1444300282110 /* TYTabButtonPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTabButtonPagerController.m; sourceTree = "<group>"; };
+		1F5EC9D920A1444300282110 /* TYTabTitleCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabTitleCellProtocol.h; sourceTree = "<group>"; };
+		1F5EC9DA20A1444300282110 /* TYPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYPagerController.h; sourceTree = "<group>"; };
+		1F5EC9DB20A1444300282110 /* TYTabPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTabPagerController.m; sourceTree = "<group>"; };
+		1F5EC9DC20A1444300282110 /* TYTabTitleViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabTitleViewCell.h; sourceTree = "<group>"; };
+		1F5EC9DD20A1444300282110 /* TYTabButtonPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabButtonPagerController.h; sourceTree = "<group>"; };
+		1F5EC9E220A1450000282110 /* HubblePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubblePageViewController.swift; sourceTree = "<group>"; };
+		1F5EC9E420A1471300282110 /* AloneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AloneViewController.swift; sourceTree = "<group>"; };
+		1F5EC9E720A14CA200282110 /* HubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubbleTableViewCell.swift; sourceTree = "<group>"; };
+		1F5EC9EA20A14F2900282110 /* HubbleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubbleViewModel.swift; sourceTree = "<group>"; };
+		1F5EC9EC20A14F7A00282110 /* AloneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AloneViewModel.swift; sourceTree = "<group>"; };
 		1F6B4B88209FE3E9007F355C /* Hubblebubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hubblebubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6B4B8B209FE3E9007F355C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F6B4B8D209FE3E9007F355C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -304,6 +327,39 @@
 			path = home;
 			sourceTree = "<group>";
 		};
+		1F5EC9D420A1444300282110 /* TYPagerController */ = {
+			isa = PBXGroup;
+			children = (
+				1F5EC9D520A1444300282110 /* TYPagerController.m */,
+				1F5EC9D620A1444300282110 /* TYTabTitleViewCell.m */,
+				1F5EC9D720A1444300282110 /* TYTabPagerController.h */,
+				1F5EC9D820A1444300282110 /* TYTabButtonPagerController.m */,
+				1F5EC9D920A1444300282110 /* TYTabTitleCellProtocol.h */,
+				1F5EC9DA20A1444300282110 /* TYPagerController.h */,
+				1F5EC9DB20A1444300282110 /* TYTabPagerController.m */,
+				1F5EC9DC20A1444300282110 /* TYTabTitleViewCell.h */,
+				1F5EC9DD20A1444300282110 /* TYTabButtonPagerController.h */,
+			);
+			path = TYPagerController;
+			sourceTree = "<group>";
+		};
+		1F5EC9E620A14C8500282110 /* hubble */ = {
+			isa = PBXGroup;
+			children = (
+				1F5EC9E720A14CA200282110 /* HubbleTableViewCell.swift */,
+			);
+			path = hubble;
+			sourceTree = "<group>";
+		};
+		1F5EC9E920A14F0F00282110 /* hubble */ = {
+			isa = PBXGroup;
+			children = (
+				1F5EC9EA20A14F2900282110 /* HubbleViewModel.swift */,
+				1F5EC9EC20A14F7A00282110 /* AloneViewModel.swift */,
+			);
+			path = hubble;
+			sourceTree = "<group>";
+		};
 		1F6B4B7F209FE3E9007F355C = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +419,7 @@
 		1F6B4BA8209FE43F007F355C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1F5EC9E620A14C8500282110 /* hubble */,
 				1F5EC9B920A1283400282110 /* home */,
 			);
 			path = View;
@@ -371,6 +428,7 @@
 		1F6B4BA9209FE43F007F355C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1F5EC9E920A14F0F00282110 /* hubble */,
 				1F5EC9CD20A12F2F00282110 /* home */,
 				1F6B4BCB209FFE13007F355C /* base */,
 			);
@@ -419,6 +477,8 @@
 			isa = PBXGroup;
 			children = (
 				1F6B4BB9209FE52B007F355C /* HubbleViewController.swift */,
+				1F5EC9E420A1471300282110 /* AloneViewController.swift */,
+				1F5EC9E220A1450000282110 /* HubblePageViewController.swift */,
 			);
 			path = hubble;
 			sourceTree = "<group>";
@@ -563,6 +623,7 @@
 		1F6B4C25209FFFD6007F355C /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				1F5EC9D420A1444300282110 /* TYPagerController */,
 				1F5EC9AE20A017E900282110 /* DBModel */,
 				1F6B4C29209FFFE8007F355C /* UITableView-FDTempleateLayoutCell */,
 				1F6B4C32209FFFE8007F355C /* CountDown */,
@@ -809,6 +870,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F5EC9E120A1444300282110 /* TYTabPagerController.m in Sources */,
 				1F6B4BBA209FE52B007F355C /* HubbleViewController.swift in Sources */,
 				1F6B4C0E209FFFAD007F355C /* UIViewController+hideExcessLine.m in Sources */,
 				1F6B4BCA209FFDE5007F355C /* RequestUrl.swift in Sources */,
@@ -819,6 +881,7 @@
 				1F6B4C0F209FFFAD007F355C /* UIImage+PureColor.m in Sources */,
 				1F6B4C0A209FFFAD007F355C /* UITextView+Placeholder.m in Sources */,
 				1F6B4C4C209FFFE8007F355C /* SDCycleScrollView.m in Sources */,
+				1F5EC9E020A1444300282110 /* TYTabButtonPagerController.m in Sources */,
 				1F6B4C49209FFFE8007F355C /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				1F6B4C47209FFFE8007F355C /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				1F6B4BD6209FFF8E007F355C /* UIImageViewManger.swift in Sources */,
@@ -833,6 +896,7 @@
 				1F5EC9B320A017E900282110 /* JKDBModel.m in Sources */,
 				1F6B4C0B209FFFAD007F355C /* UIColor+Hex.m in Sources */,
 				1F6B4C4E209FFFE8007F355C /* SDCollectionViewCell.m in Sources */,
+				1F5EC9EB20A14F2900282110 /* HubbleViewModel.swift in Sources */,
 				1F6B4BF2209FFFA8007F355C /* UITapGestureRecognizer+Extention.swift in Sources */,
 				1F6B4B8E209FE3E9007F355C /* ViewController.swift in Sources */,
 				1F6B4BB6209FE508007F355C /* BaseViewController.swift in Sources */,
@@ -850,6 +914,8 @@
 				1F6B4BF4209FFFA8007F355C /* AlertControl+Tools.swift in Sources */,
 				1F6B4C0D209FFFAD007F355C /* NSDate+LSCore.m in Sources */,
 				1F6B4C50209FFFE8007F355C /* TAPageControl.m in Sources */,
+				1F5EC9E320A1450000282110 /* HubblePageViewController.swift in Sources */,
+				1F5EC9DE20A1444300282110 /* TYPagerController.m in Sources */,
 				1F5EC9C220A1291300282110 /* GestureRecognizerManager.swift in Sources */,
 				1F6B4BCD209FFE28007F355C /* BaseViewModel.swift in Sources */,
 				1F6B4BDD209FFFA2007F355C /* BaseNetWorke.swift in Sources */,
@@ -861,6 +927,7 @@
 				1F6B4BD7209FFF8E007F355C /* CacheTools.swift in Sources */,
 				1F6B4C51209FFFE8007F355C /* TAAnimatedDotView.m in Sources */,
 				1F5EC9BB20A1285C00282110 /* ReCommendTableViewCell.swift in Sources */,
+				1F5EC9E520A1471300282110 /* AloneViewController.swift in Sources */,
 				1F5EC9D120A132E500282110 /* AnimationTools.swift in Sources */,
 				1F6B4BC8209FFDE5007F355C /* Define.swift in Sources */,
 				1F6B4C4A209FFFE8007F355C /* UITableView+FDIndexPathHeightCache.m in Sources */,
@@ -868,7 +935,9 @@
 				1F6B4BBE209FE541007F355C /* GoodsViewController.swift in Sources */,
 				1F5EC9CB20A12B0500282110 /* UILabel+Extentions.swift in Sources */,
 				1F6B4BC9209FFDE5007F355C /* ShareManager.swift in Sources */,
+				1F5EC9DF20A1444300282110 /* TYTabTitleViewCell.m in Sources */,
 				1F5EC9C820A1296800282110 /* AnimationView.swift in Sources */,
+				1F5EC9ED20A14F7A00282110 /* AloneViewModel.swift in Sources */,
 				1F6B4BD8209FFF8E007F355C /* ScalImageManager.swift in Sources */,
 				1F6B4BF3209FFFA8007F355C /* DispatchQueueExtentions.swift in Sources */,
 				1F6B4BD9209FFF8E007F355C /* Tools.swift in Sources */,
@@ -876,6 +945,7 @@
 				1F6B4C48209FFFE8007F355C /* UITableView+FDKeyedHeightCache.m in Sources */,
 				1F6B4C4D209FFFE8007F355C /* UIView+SDExtension.m in Sources */,
 				1F6B4C46209FFFE8007F355C /* ZHPickView.m in Sources */,
+				1F5EC9E820A14CA200282110 /* HubbleTableViewCell.swift in Sources */,
 				1F5EC9B420A017E900282110 /* JKDBHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

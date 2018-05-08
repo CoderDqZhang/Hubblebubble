@@ -26,6 +26,6 @@
 #import "NSString+Utils.h"
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/TencentOAuth.h>
-
+#import "TYTabButtonPagerController.h"
 
 #endif /* Hubblebubble_Bridging_Header_h */

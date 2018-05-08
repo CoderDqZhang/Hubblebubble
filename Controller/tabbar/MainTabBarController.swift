@@ -11,7 +11,7 @@ import UIKit
 class MainTabBarController: UITabBarController {
 
     let homeView = HomeViewController()
-    let hubbleView = HubbleViewController()
+    let hubbleView = HubblePageViewController()
     let articleView = ArticleViewController()
     let goodsView = GoodsViewController()
     let mineView = MineViewController()
@@ -20,7 +20,10 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         let homeNav = self.createNavigationItem(viewController: homeView, title: "推荐", image: UIImage.init(named: "推荐")!)
-        let hubbleNav = self.createNavigationItem(viewController: hubbleView, title: "气泡", image: UIImage.init(named: "气泡")!)
+        let hubbleNav = UINavigationController.init(rootViewController: hubbleView)
+        hubbleNav.tabBarItem.title = "气泡"
+        hubbleNav.tabBarItem.image = UIImage.init(named: "气泡")!
+//        let hubbleNav = self.createNavigationItem(viewController: hubbleView, title: "气泡", image: UIImage.init(named: "气泡")!)
         let articleNav = self.createNavigationItem(viewController: articleView, title: "美文", image: UIImage.init(named: "文章")!)
         let goodsNav = self.createNavigationItem(viewController: goodsView, title: "美物", image: UIImage.init(named: "产品")!)
         let mineNav = self.createNavigationItem(viewController: mineView, title: "我的", image: UIImage.init(named: "个人中心")!)
