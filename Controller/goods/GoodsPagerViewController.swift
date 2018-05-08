@@ -1,5 +1,5 @@
 //
-//  ArticlePageViewController.swift
+//  GoodsPagerViewController.swift
 //  Hubblebubble
 //
 //  Created by Zhang on 2018/5/8.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ArticlePageViewController: TYTabButtonPagerController {
+class GoodsPagerViewController: TYTabButtonPagerController {
 
     var index:Int = 0
     var pageTitle = ["热门","美鞋","上衣","热裤","裙子","短袖","袜子"]
-    var controllers = [ArticleViewController(),ArticleViewController(),ArticleViewController(),ArticleViewController(),ArticleViewController(),ArticleViewController(),ArticleViewController(),]
+    var controllers = [GoodsViewController(),GoodsViewController(),GoodsViewController(),GoodsViewController(),GoodsViewController(),GoodsViewController(),GoodsViewController(),]
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationItem.title = "美文"
         self.setUpNavigationItem()
         self.setUpPageViewControllerStyle()

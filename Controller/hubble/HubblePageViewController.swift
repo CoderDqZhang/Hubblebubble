@@ -8,7 +8,7 @@
 
 import UIKit
 
-let kCollectionLayoutEdging:CGFloat = (SCREENWIDTH - 100) / 5 
+let kCollectionLayoutEdging:CGFloat = (SCREENWIDTH - 100) / 5
 let kCellSpacing:CGFloat = (SCREENWIDTH - 100) / 2
 
 class HubblePageViewController: TYTabButtonPagerController {
@@ -37,7 +37,7 @@ class HubblePageViewController: TYTabButtonPagerController {
         self.normalTextFont = App_Theme_PinFan_R_13_Font
         self.selectedTextFont = App_Theme_PinFan_R_13_Font
         self.normalTextColor = UIColor.init(hexString: App_Theme_333333_Color)
-        self.selectedTextColor = UIColor.init(hexString: App_Theme_FB66A4_Color)
+        self.selectedTextColor = UIColor.init(hexString: App_Theme_FA4B95_Color)
         self.selectedTextFont = App_Theme_PinFan_R_13_Font
     }
     

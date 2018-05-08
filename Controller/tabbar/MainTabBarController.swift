@@ -13,7 +13,7 @@ class MainTabBarController: UITabBarController {
     let homeView = HomeViewController()
     let hubbleView = HubblePageViewController()
     let articleView = ArticlePageViewController()
-    let goodsView = GoodsViewController()
+    let goodsView = GoodsPagerViewController()
     let mineView = MineViewController()
     
     override func viewDidLoad() {
@@ -27,8 +27,11 @@ class MainTabBarController: UITabBarController {
         let articleNav = UINavigationController.init(rootViewController: articleView)
         articleNav.tabBarItem.title = "美文"
         articleNav.tabBarItem.image = UIImage.init(named: "文章")!
-
-        let goodsNav = self.createNavigationItem(viewController: goodsView, title: "美物", image: UIImage.init(named: "产品")!)
+        
+        let goodsNav = UINavigationController.init(rootViewController: goodsView)
+        goodsNav.tabBarItem.title = "美物"
+        goodsNav.tabBarItem.image = UIImage.init(named: "产品")!
+        
         let mineNav = self.createNavigationItem(viewController: mineView, title: "我的", image: UIImage.init(named: "个人中心")!)
         
         self.viewControllers = [homeNav,hubbleNav,articleNav,goodsNav,mineNav]
