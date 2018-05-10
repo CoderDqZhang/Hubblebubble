@@ -125,6 +125,10 @@
 		1FE3997D20A3EECC0097D7A3 /* HistoryGoodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3997C20A3EECC0097D7A3 /* HistoryGoodsViewModel.swift */; };
 		1FE3997F20A3EFF00097D7A3 /* RedManagerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3997E20A3EFF00097D7A3 /* RedManagerTableViewCell.swift */; };
 		1FE3998120A3F1FD0097D7A3 /* RedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3998020A3F1FD0097D7A3 /* RedViewModel.swift */; };
+		1FE3998320A409070097D7A3 /* ColloectPagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3998220A409070097D7A3 /* ColloectPagerController.swift */; };
+		1FE3998520A4091B0097D7A3 /* CollectGoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3998420A4091B0097D7A3 /* CollectGoodViewController.swift */; };
+		1FE3998720A409870097D7A3 /* CollectArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3998620A409870097D7A3 /* CollectArticleViewModel.swift */; };
+		1FE3998920A409980097D7A3 /* CollectGoodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3998820A409980097D7A3 /* CollectGoodsViewModel.swift */; };
 		A3A597641AAACEA4AD401E8F /* Pods_Hubblebubble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D38427E3FC2460E9B93CB1 /* Pods_Hubblebubble.framework */; };
 /* End PBXBuildFile section */
 
@@ -294,6 +298,10 @@
 		1FE3997C20A3EECC0097D7A3 /* HistoryGoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryGoodsViewModel.swift; sourceTree = "<group>"; };
 		1FE3997E20A3EFF00097D7A3 /* RedManagerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedManagerTableViewCell.swift; sourceTree = "<group>"; };
 		1FE3998020A3F1FD0097D7A3 /* RedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedViewModel.swift; sourceTree = "<group>"; };
+		1FE3998220A409070097D7A3 /* ColloectPagerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColloectPagerController.swift; sourceTree = "<group>"; };
+		1FE3998420A4091B0097D7A3 /* CollectGoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectGoodViewController.swift; sourceTree = "<group>"; };
+		1FE3998620A409870097D7A3 /* CollectArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectArticleViewModel.swift; sourceTree = "<group>"; };
+		1FE3998820A409980097D7A3 /* CollectGoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectGoodsViewModel.swift; sourceTree = "<group>"; };
 		32D38427E3FC2460E9B93CB1 /* Pods_Hubblebubble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hubblebubble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6DB9248D1303EDDE112F756 /* Pods-Hubblebubble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hubblebubble.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hubblebubble/Pods-Hubblebubble.release.xcconfig"; sourceTree = "<group>"; };
 		DD69096358812CB9C09FD734 /* Pods-Hubblebubble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hubblebubble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hubblebubble/Pods-Hubblebubble.debug.xcconfig"; sourceTree = "<group>"; };
@@ -616,6 +624,8 @@
 				1FE3995C20A2B95A0097D7A3 /* AttentionViewController.swift */,
 				1FE3995E20A2B9720097D7A3 /* FeedBackViewController.swift */,
 				1FE3996020A2B9810097D7A3 /* CollectViewController.swift */,
+				1FE3998220A409070097D7A3 /* ColloectPagerController.swift */,
+				1FE3998420A4091B0097D7A3 /* CollectGoodViewController.swift */,
 				1FE3996220A2B9960097D7A3 /* SettingViewController.swift */,
 				1FE3996620A2BA230097D7A3 /* HistoryViewController.swift */,
 				1FE3997620A3EBA10097D7A3 /* HistoryArticleViewController.swift */,
@@ -827,6 +837,8 @@
 				1FE3997A20A3EEBB0097D7A3 /* HistoryArtcleViewModel.swift */,
 				1FE3997C20A3EECC0097D7A3 /* HistoryGoodsViewModel.swift */,
 				1FE3998020A3F1FD0097D7A3 /* RedViewModel.swift */,
+				1FE3998620A409870097D7A3 /* CollectArticleViewModel.swift */,
+				1FE3998820A409980097D7A3 /* CollectGoodsViewModel.swift */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -1038,6 +1050,8 @@
 				1F5EC9B720A019E400282110 /* UserInfoModel.swift in Sources */,
 				1FE3996320A2B9960097D7A3 /* SettingViewController.swift in Sources */,
 				1F6B4C10209FFFAD007F355C /* UIViewController+DismissKeyboard.m in Sources */,
+				1FE3998920A409980097D7A3 /* CollectGoodsViewModel.swift in Sources */,
+				1FE3998320A409070097D7A3 /* ColloectPagerController.swift in Sources */,
 				1FE3996B20A2C9B80097D7A3 /* ColorTools.swift in Sources */,
 				1F5EC9CF20A12F4A00282110 /* HomeViewModel.swift in Sources */,
 				1FE3997320A3DC9B0097D7A3 /* FansViewModel.swift in Sources */,
@@ -1107,6 +1121,7 @@
 				1FE3995320A293580097D7A3 /* MineViewModel.swift in Sources */,
 				1F5EC9C820A1296800282110 /* AnimationView.swift in Sources */,
 				1F5EC9ED20A14F7A00282110 /* AloneViewModel.swift in Sources */,
+				1FE3998520A4091B0097D7A3 /* CollectGoodViewController.swift in Sources */,
 				1FE3997F20A3EFF00097D7A3 /* RedManagerTableViewCell.swift in Sources */,
 				1F5EC9FD20A195A600282110 /* GoodsCollectionViewCell.swift in Sources */,
 				1FE3997920A3EBE20097D7A3 /* HistoryArticleTableViewCell.swift in Sources */,
@@ -1122,6 +1137,7 @@
 				1FE3995720A2B93D0097D7A3 /* RedViewController.swift in Sources */,
 				1F6B4C46209FFFE8007F355C /* ZHPickView.m in Sources */,
 				1F5EC9E820A14CA200282110 /* HubbleTableViewCell.swift in Sources */,
+				1FE3998720A409870097D7A3 /* CollectArticleViewModel.swift in Sources */,
 				1F5EC9B420A017E900282110 /* JKDBHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

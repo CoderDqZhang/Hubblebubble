@@ -15,7 +15,14 @@ class HistoryViewController: BaseViewController {
 
         self.bindViewModel(viewModel: HistoryGoodsViewModel(), controller: self)
         self.setUpTableView(style: .grouped, cells: [HistoryArticleTableViewCell.self], controller: self)
+        self.updateTableView()
         // Do any additional setup after loading the view.
+    }
+    
+    func updateTableView() {
+        self.tableView.snp.updateConstraints { (make) in
+            make.top.equalTo(self.view.snp.top).offset(IPHONEX ? -24:0)
+        }
     }
 
     override func didReceiveMemoryWarning() {

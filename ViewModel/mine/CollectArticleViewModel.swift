@@ -1,5 +1,5 @@
 //
-//  RedViewModel.swift
+//  CollectArticleViewModel.swift
 //  Hubblebubble
 //
 //  Created by Zhang on 2018/5/10.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class RedViewModel: BaseViewModel {
+class CollectArticleViewModel: BaseViewModel {
     override init() {
         super.init()
     }
     
-    func tableViewRedManagerTableViewCellSetData(_ indexPath:IndexPath, cell:RedManagerTableViewCell) {
+    func tableViewHistoryArticleTableViewCellSetData(_ indexPath:IndexPath, cell:HistoryArticleTableViewCell) {
         
     }
     
@@ -23,7 +23,7 @@ class RedViewModel: BaseViewModel {
     
 }
 
-extension RedViewModel: UITableViewDelegate {
+extension CollectArticleViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         self.tableViewDidSelect(indexPath)
@@ -31,11 +31,11 @@ extension RedViewModel: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 103.5
+        return 110
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.0001
+        return 10
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -43,7 +43,7 @@ extension RedViewModel: UITableViewDelegate {
     }
 }
 
-extension RedViewModel: UITableViewDataSource {
+extension CollectArticleViewModel: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 10
     }
@@ -53,10 +53,9 @@ extension RedViewModel: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: RedManagerTableViewCell.description(), for: indexPath)
-        self.tableViewRedManagerTableViewCellSetData(indexPath, cell: cell as! RedManagerTableViewCell)
+        let cell = tableView.dequeueReusableCell(withIdentifier: HistoryArticleTableViewCell.description(), for: indexPath)
+        self.tableViewHistoryArticleTableViewCellSetData(indexPath, cell: cell as! HistoryArticleTableViewCell)
         cell.selectionStyle = .none
         return cell
     }
 }
-

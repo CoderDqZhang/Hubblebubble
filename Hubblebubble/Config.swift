@@ -22,7 +22,6 @@ let App_Theme_9FC8FC_Color = "9FC8FC" //渐变开始
 let App_Theme_F4A0E7_Color = "F4A0E7" //渐变开始
 let App_Theme_F94856_Color = "F94856"
 let App_Theme_BBC1CB_Color = "BBC1CB"
-let App_Theme_A0A0A0_Color = "A0A0A0"
 let App_Theme_FAFAFA_Color = "FAFAFA"
 let App_Theme_000000_Color = "000000"
 let App_Theme_AAAAAA_Color = "AAAAAA"

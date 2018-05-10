@@ -16,7 +16,6 @@ class GoodsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.init(hexString: App_Theme_FFFFFF_Color)
-        self.bindLogicViewModel()
         self.setUpCollectView()
         self.setUpCollectViewRefreshData()
         // Do any additional setup after loading the view.
@@ -33,11 +32,6 @@ class GoodsViewController: BaseViewController {
         collectView.register(GoodsCollectionViewCell.self, forCellWithReuseIdentifier: GoodsCollectionViewCell.description())
         collectView.register(GoodHeaderCollectionViewCell.self, forSupplementaryViewOfKind: "UICollectionElementKindSectionHeader", withReuseIdentifier: GoodHeaderCollectionViewCell.description())
         collectView.register(GoodFooterCollectionViewCell.self, forSupplementaryViewOfKind: "UICollectionElementKindSectionFooter", withReuseIdentifier: GoodFooterCollectionViewCell.description())
-    }
-    
-    func bindLogicViewModel(){
-        self.goodViewModel.controller = self
-        
     }
 
     

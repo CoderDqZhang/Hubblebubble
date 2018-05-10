@@ -54,7 +54,7 @@ extension FansViewModel: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FansTableViewCell.description(), for: indexPath)
-        self.tableViewFansTableViewCellSetData(indexPath: indexPath, cell: cell as! FansTableViewCell)
+        self.tableViewFansTableViewCellSetData(indexPath, cell: cell as! FansTableViewCell)
         cell.selectionStyle = .none
         return cell
     }

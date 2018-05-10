@@ -13,9 +13,18 @@ class CollectViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.bindViewModel(viewModel: CollectArticleViewModel(), controller: self)
+        self.setUpTableView(style: .grouped, cells: [HistoryArticleTableViewCell.self], controller: self)
+        self.updateTableView()
         // Do any additional setup after loading the view.
     }
-
+    
+    func updateTableView() {
+        self.tableView.snp.updateConstraints { (make) in
+            make.top.equalTo(self.view.snp.top).offset(IPHONEX ? -24:0)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

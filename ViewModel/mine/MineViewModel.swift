@@ -33,9 +33,10 @@ class MineViewModel: BaseViewModel {
             NavigationPushView(self.controller!, toConroller: RedViewController())
         case 2:
             if indexPath.row == 0{
-                NavigationPushView(self.controller!, toConroller: CollectViewController())
+                NavigationPushView(self.controller!, toConroller: ColloectPagerController())
+            }else{
+                NavigationPushView(self.controller!, toConroller: HistoryPagerController())
             }
-              NavigationPushView(self.controller!, toConroller: HistoryViewController())
         case 3:
             let model = ShareModel.init()
             model.title = "dd"
@@ -46,8 +47,9 @@ class MineViewModel: BaseViewModel {
         case 4:
             if indexPath.row == 0 {
                 NavigationPushView(self.controller!, toConroller: HelpViewController())
+            }else{
+                NavigationPushView(self.controller!, toConroller: FeedBackViewController())
             }
-            NavigationPushView(self.controller!, toConroller: FeedBackViewController())
         default:
             NavigationPushView(self.controller!, toConroller: SettingViewController())
         }

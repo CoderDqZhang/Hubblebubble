@@ -56,7 +56,7 @@ class MineHeaderTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setUpView()
-        let att = ColorTools.changeColor(startColor: UIColor.init(hexString: App_Theme_9FC8FC_Color), endColor: UIColor.init(hexString: App_Theme_F4A0E7_Color), frame: CGRect.init(x: 0, y: 0, width: SCREENWIDTH, height: SCREENWIDTH * 417 / 750 - 50))
+        let att = ColorTools.changeColor(startColor: UIColor.init(hexString: App_Theme_9FC8FC_Color), endColor: UIColor.init(hexString: App_Theme_F4A0E7_Color), frame: CGRect.init(x: 0, y: 0, width: SCREENWIDTH, height: SCREENWIDTH * 417 / 750))
         self.contentView.layer.insertSublayer(att, at: 0)
     }
     

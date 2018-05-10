@@ -1,5 +1,5 @@
 //
-//  HistoryPagerController.swift
+//  ColloectPagerController.swift
 //  Hubblebubble
 //
 //  Created by Zhang on 2018/5/10.
@@ -7,15 +7,17 @@
 //
 
 import UIKit
+let kCollectionLayoutEdging1:CGFloat = (SCREENWIDTH - 55) / 5
+let kCellSpacing1:CGFloat = (SCREENWIDTH - 55) / 2
+class ColloectPagerController: TYTabButtonPagerController {
 
-class HistoryPagerController: TYTabButtonPagerController {
     var index:Int = 0
     var pageTitle = ["美文","美物"]
-    var controllers = [HistoryViewController(),HistoryArticleViewController()]
+    var controllers = [CollectViewController(),CollectGoodViewController()]
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "浏览记录"
+        self.navigationItem.title = "我的收藏"
         self.setUpNavigationItem()
         self.setUpPageViewControllerStyle()
         self.setUpView()
@@ -98,5 +100,5 @@ class HistoryPagerController: TYTabButtonPagerController {
     override func pagerController(_ pagerController: TYPagerController!, controllerFor index: Int) -> UIViewController! {
         return controllers[index]
     }
-
+    
 }

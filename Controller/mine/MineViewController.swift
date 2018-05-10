@@ -19,7 +19,14 @@ class MineViewController: BaseViewController {
         self.bindViewModel(viewModel: MineViewModel(), controller: self)
         self.setUpTableView(style: .grouped, cells: [GloabImageTitleAndRightCell.self, MineHeaderTableViewCell.self], controller: self)
         self.navigationController?.navigationBar.isHidden = true
+        self.updateTableView()
         // Do any additional setup after loading the view.
+    }
+    
+    func updateTableView() {
+        self.tableView.snp.updateConstraints { (make) in
+            make.top.equalTo(self.view.snp.top).offset(IPHONEX ? -24:0)
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -1,19 +1,20 @@
 //
-//  ArticleViewController.swift
+//  CollectGoodViewController.swift
 //  Hubblebubble
 //
-//  Created by Zhang on 2018/5/7.
+//  Created by Zhang on 2018/5/10.
 //  Copyright © 2018 Zhang. All rights reserved.
 //
 
 import UIKit
 
-class ArticleViewController: BaseViewController {
+class CollectGoodViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.bindViewModel(viewModel: ArticleViewModel(), controller: self)
-        self.setUpTableView(style: .grouped, cells: [ReCommendTableViewCell.self,ArticleHeaderTableViewCell.self], controller: self)
+
+        self.bindViewModel(viewModel: CollectGoodsViewModel(), controller: self)
+        self.setUpTableView(style: .grouped, cells: [HistoryArticleTableViewCell.self], controller: self)
         self.updateTableView()
         // Do any additional setup after loading the view.
     }
@@ -23,7 +24,7 @@ class ArticleViewController: BaseViewController {
             make.top.equalTo(self.view.snp.top).offset(IPHONEX ? -24:0)
         }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
