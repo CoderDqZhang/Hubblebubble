@@ -15,6 +15,9 @@ class HomeViewController: BaseViewController {
         self.bindViewModel(viewModel: HomeViewModel(), controller: self)
         self.setUpTableView(style: .plain, cells: [ReCommendTableViewCell.self], controller: self)
         self.navigationItem.title = "心情推荐"
+        
+       
+//       self.navigationController?.navigationBar.isTranslucent = true
         // Do any additional setup after loading the view.
     }
     

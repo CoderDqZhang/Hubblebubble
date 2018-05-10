@@ -256,6 +256,81 @@ class GloableTitleLabelTitleDescCell: UITableViewCell {
     
 }
 
+class GloabImageTitleAndRightCell: UITableViewCell {
+    var leftImage:UIImageView!
+    var titleLabel:UILabel!
+    var lineLable:GloabLineView!
+    var rightImage:UIImageView!
+    
+    var didMakeConstraints:Bool = false
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.setUpView()
+    }
+    
+    func setUpView() {
+        leftImage = UIImageView.init()
+        self.addSubview(leftImage)
+        
+        titleLabel = UILabel()
+        titleLabel.font = App_Theme_PinFan_M_15_Font
+        titleLabel.textColor = UIColor.init(hexString: App_Theme_000000_Color)
+        self.contentView.addSubview(titleLabel)
+        
+        
+        
+        lineLable = GloabLineView(frame: CGRect(x: 20,y: 0,width: SCREENWIDTH - 20, height: 0.5))
+        lineLable.setLineColor(UIColor.init(hexString: App_Theme_EEEEEE_Color))
+        self.contentView.addSubview(lineLable)
+        
+        rightImage = UIImageView.init()
+        rightImage.image = UIImage.init(named: "arrow")
+        self.addSubview(rightImage)
+        
+        self.updateConstraintsIfNeeded()
+    }
+    
+    
+    
+    func setData(_ leftImage: UIImage,_ title:String ) {
+        titleLabel.text = title
+    }
+    
+    func hideLineLabel() {
+        self.lineLable.isHidden = true
+    }
+    
+    override func updateConstraints() {
+        if !self.didMakeConstraints {
+            
+            leftImage.snp.makeConstraints { (make) in
+                make.left.equalTo(self.contentView.snp.left).offset(20)
+                make.centerY.equalToSuperview()
+                make.size.equalTo(CGSize.init(width: 40, height: 40))
+            }
+            
+            titleLabel.snp.makeConstraints({ (make) in
+                make.left.equalTo(self.leftImage.snp.right).offset(20)
+                make.centerY.equalTo(self.contentView.snp.centerY).offset(0)
+                make.width.equalTo(170)
+            })
+            
+            
+            rightImage.snp.makeConstraints { (make) in
+                make.centerY.equalTo(self.snp.centerY).offset(0)
+                make.right.equalTo(self.snp.right).offset(-20)
+            }
+            
+            self.didMakeConstraints = true
+        }
+        super.updateConstraints()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
 class GloabTitleAndFieldCell: UITableViewCell {
     var titleLabel:UILabel!
     var textField:UITextField!

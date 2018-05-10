@@ -28,6 +28,7 @@ class BaseViewController: UIViewController {
         self.setUpLogic()
         self.navigationController?.fd_fullscreenPopGestureRecognizer.isEnabled = true
         self.setupBaseViewForDismissKeyboard()
+        self.navigationController?.navigationBar.layer.insertSublayer(ColorTools.changeColor(startColor: UIColor.init(hexString: App_Theme_9FC8FC_Color), endColor: UIColor.init(hexString: App_Theme_F4A0E7_Color), frame: CGRect.init(x: 0, y: -20, width: SCREENWIDTH, height: 64)), at: 0)
         // Do any additional setup after loading the view.
     }
     

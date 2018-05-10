@@ -18,13 +18,17 @@ class AppleThemeTool {
         UITabBar.appearance().backgroundColor = UIColor.init(hexString: App_Theme_FFFFFF_Color, andAlpha: 0.5)
         
         UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().barTintColor = UIColor.init(hexString: App_Theme_F94856_Color)
+        UINavigationBar.appearance().barTintColor = UIColor.clear
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.font:App_Theme_PinFan_R_17_Font,NSAttributedStringKey.foregroundColor:UIColor.init(hexString: App_Theme_FFFFFF_Color) ?? ""]
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font:App_Theme_PinFan_R_15_Font,NSAttributedStringKey.foregroundColor:UIColor.init(hexString: App_Theme_FFFFFF_Color) ?? ""], for: UIControlState())
         UIApplication.shared.setStatusBarStyle(.lightContent, animated: false)
-        UINavigationBar.appearance().setBackgroundImage(UIImage.init(color: UIColor.init(hexString: App_Theme_F94856_Color), size: CGSize(width: SCREENWIDTH, height: 64)), for: .default)
+        //渐变色
+        //插入渐变色
+        UINavigationBar.appearance().isTranslucent = true
+        UINavigationBar.appearance().setBackgroundImage(UIImage.init(color: UIColor.init(hexString: App_Theme_FFFFFF_Color, andAlpha: 0), size: CGSize.init(width: SCREENWIDTH, height: 64)), for: .default)
+        UINavigationBar.appearance().layer.insertSublayer(ColorTools.changeColor(startColor: UIColor.init(hexString: App_Theme_9FC8FC_Color), endColor: UIColor.init(hexString: App_Theme_F4A0E7_Color), frame: CGRect.init(x: 0, y: 0, width: SCREENWIDTH, height: 64)), at: 0)
+        
         UINavigationBar.appearance().shadowImage = UIImage.init()
-        UINavigationBar.appearance().isTranslucent = false
         
     }
     

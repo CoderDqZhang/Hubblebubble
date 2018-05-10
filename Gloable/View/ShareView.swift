@@ -86,7 +86,7 @@ class GloableServiceView: UIView, UIGestureRecognizerDelegate {
         }
         cancelButton.frame = CGRect.init(x: SCREENWIDTH - 50, y: 10, width: 40, height: 40)
         cancelButton.setImage(UIImage.init(named: "Btn_Close"), for: UIControlState())
-        detailView.addSubview(cancelButton)
+        self.addSubview(cancelButton)
     }
     
     func setUpTitleView(_ title:String){
@@ -127,8 +127,6 @@ class GloableServiceView: UIView, UIGestureRecognizerDelegate {
 class ShareView: UIView, UIGestureRecognizerDelegate, CAAnimationDelegate {
     var detailView:UIView!
     var shareView:UIView!
-    var titleLabel:UILabel!
-    var detailLabel:UILabel!
     var cancelButton:UIButton!
     var heightY:CGFloat = 0
     var wxSession:UIButton!
@@ -153,12 +151,16 @@ class ShareView: UIView, UIGestureRecognizerDelegate, CAAnimationDelegate {
         }
         self.backgroundColor = UIColor.init(hexString: App_Theme_333333_Color, andAlpha: 0.5)
         detailView = UIView()
-        detailView.backgroundColor = UIColor.white
-        self.setUpTitleView(title)
+        detailView.backgroundColor = UIColor.init(hexString: App_Theme_333333_Color)
+        let shareViews = UIView()
+        shareViews.backgroundColor = UIColor.init(hexString: App_Theme_FFFFFF_Color)
+        shareViews.frame = CGRect(x: 0, y: 0, width: SCREENWIDTH, height: 150)
+        detailView.addSubview(shareViews)
+//        self.setUpTitleView(title)
         
         self.setUpCancelButton()
         self.addShareButton()
-        detailView.frame = CGRect(x: 0, y: SCREENHEIGHT, width: SCREENWIDTH, height: 188)
+        detailView.frame = CGRect(x: 0, y: SCREENHEIGHT, width: SCREENWIDTH, height: 210)
         detailView.backgroundColor = UIColor.red
         self.addSubview(detailView)
         
@@ -168,7 +170,7 @@ class ShareView: UIView, UIGestureRecognizerDelegate, CAAnimationDelegate {
         singleTap.delegate = self
         self.addGestureRecognizer(singleTap)
         UIView.animate(withDuration: AnimationTime, animations: {
-            self.detailView.frame = CGRect(x: 0, y: SCREENHEIGHT - 188, width: SCREENWIDTH, height: 188)
+            self.detailView.frame = CGRect(x: 0, y: SCREENHEIGHT - 210, width: SCREENWIDTH, height: 210)
         }, completion: { completion in
             
         })
@@ -180,7 +182,7 @@ class ShareView: UIView, UIGestureRecognizerDelegate, CAAnimationDelegate {
     
     func removwSelf(){
         UIView.animate(withDuration: AnimationTime, animations: {
-            self.detailView.frame = CGRect(x: 0, y: SCREENHEIGHT, width: SCREENWIDTH, height: 188)
+            self.detailView.frame = CGRect(x: 0, y: SCREENHEIGHT, width: SCREENWIDTH, height: 210)
         }, completion: { completion in
             self.removeFromSuperview()
         })
@@ -188,20 +190,25 @@ class ShareView: UIView, UIGestureRecognizerDelegate, CAAnimationDelegate {
     
     func setUpCancelButton(){
         cancelButton =  UIButton(type: .custom)
+        cancelButton.backgroundColor = UIColor.init(hexString: App_Theme_FFFFFF_Color)
         cancelButton.reactive.controlEvents(.touchUpInside).observe { (action) in
             self.removwSelf()
         }
-        cancelButton.frame = CGRect.init(x: SCREENWIDTH - 50, y: 10, width: 40, height: 40)
-        cancelButton.setImage(UIImage.init(named: "Btn_Close"), for: UIControlState())
+        cancelButton.frame = CGRect.init(x: 0, y: 210 - 44, width: SCREENWIDTH, height: 44)
+        cancelButton.setTitle("取消", for: .normal)
+        cancelButton.setTitleColor(UIColor.init(hexString: App_Theme_333333_Color), for: .normal)
         detailView.addSubview(cancelButton)
     }
     
     func addShareButton(){
         shareView = UIView.init()
-        var maxX:CGFloat = -16
-        if WXApi.isWXAppInstalled() {
+        var maxX:CGFloat = 0
+        if !WXApi.isWXAppInstalled() {
             wxSession = UIButton(type: .custom)
-            wxSession.buttonSetImage(UIImage.init(named: "Wechat_Normal")!, sImage: UIImage.init(named: "Wechat_Pressed")!)
+            wxSession.set(image: UIImage.init(named: "Wechat_Normal")!, title: "微信", titlePosition: .bottom, additionalSpacing: 10, state: .normal)
+//            wxSession.buttonSetImage(UIImage.init(named: "Wechat_Normal")!, sImage: UIImage.init(named: "Wechat_Pressed")!)
+//            wxSession.setTitle("微信", for: .normal)
+            wxSession.setTitleColor(UIColor.init(hexString: App_Theme_333333_Color), for: .normal)
             wxSession.reactive.controlEvents(.touchUpInside).observe({ (action) in
                 if self.shareImage == nil {
                     ShareTools.shareInstance.shareWeChatSession(self.shareModel.title, description: self.shareModel.desc, image: self.ticketImage, url: self.shareUrl)
@@ -211,9 +218,9 @@ class ShareView: UIView, UIGestureRecognizerDelegate, CAAnimationDelegate {
                 self.removwSelf()
             })
             wxSession.tag = 100
-            wxSession.frame = CGRect(x: maxX + 16, y: 188, width: 50, height: 50)
+            wxSession.frame = CGRect(x: maxX, y: 210, width: 50, height: 90)
             if #available(iOS 9.0, *) {
-                wxSession.layer.add(self.setUpAnimation(wxSession.layer.position.y - 98, velocity: 6.0), forKey: "wxSession")
+                wxSession.layer.add(self.setUpAnimation(wxSession.layer.position.y - 180, velocity: 6.0), forKey: "wxSession")
                 shareView.addSubview(wxSession)
             } else {
                 shareView.addSubview(wxSession)
@@ -224,6 +231,8 @@ class ShareView: UIView, UIGestureRecognizerDelegate, CAAnimationDelegate {
             wxTimeLine = UIButton(type: .custom)
             wxTimeLine.tag = 101
             wxTimeLine.buttonSetImage(UIImage.init(named: "Moment_Normal")!, sImage: UIImage.init(named: "Moment_Pressed")!)
+            wxTimeLine.setTitle("朋友圈", for: .normal)
+            wxTimeLine.setTitleColor(UIColor.init(hexString: App_Theme_333333_Color), for: .normal)
             wxTimeLine.reactive.controlEvents(.touchUpInside).observe({ (action) in
                 if self.shareImage == nil {
                     ShareTools.shareInstance.shareWeChatTimeLine(self.shareModel.title, description: self.shareModel.desc, image: self.ticketImage, url: self.shareUrl)
@@ -232,9 +241,9 @@ class ShareView: UIView, UIGestureRecognizerDelegate, CAAnimationDelegate {
                 }
                 self.removwSelf()
             })
-            wxTimeLine.frame = CGRect(x: maxX + 16, y: 188, width: 50, height: 50)
+            wxTimeLine.frame = CGRect(x: maxX + 50, y: 210, width: 50, height: 90)
             if #available(iOS 9.0, *) {
-                wxTimeLine.layer.add(self.setUpAnimation(wxTimeLine.layer.position.y - 98, velocity: 5.5), forKey: "wxTimeLine")
+                wxTimeLine.layer.add(self.setUpAnimation(wxTimeLine.layer.position.y - 180, velocity: 5.5), forKey: "wxTimeLine")
                 shareView.addSubview(wxTimeLine)
             } else {
                 shareView.addSubview(wxTimeLine)
@@ -244,7 +253,7 @@ class ShareView: UIView, UIGestureRecognizerDelegate, CAAnimationDelegate {
             maxX = wxTimeLine.frame.maxX
         }
         
-        if WeiboSDK.isWeiboAppInstalled() {
+        if !WeiboSDK.isWeiboAppInstalled() {
             weiboTimeLine = UIButton(type: .custom)
             weiboTimeLine.tag = 102
             weiboTimeLine.buttonSetImage(UIImage.init(named: "Weibo_Normal")!, sImage: UIImage.init(named: "Weibo_Pressed")!)
@@ -255,9 +264,12 @@ class ShareView: UIView, UIGestureRecognizerDelegate, CAAnimationDelegate {
                     ShareTools.shareInstance.shareWBScreenShotImag(self.shareImage, text: (Bundle.main.infoDictionary! as NSDictionary).object(forKey: "CFBundleDisplayName") as! String)
                 }
             })
-            weiboTimeLine.frame = CGRect(x: maxX + 16, y: 188, width: 50, height: 50)
+            weiboTimeLine.frame = CGRect(x: maxX + 50, y: 210, width: 50, height: 90)
+            weiboTimeLine.setTitle("微博", for: .normal)
+            weiboTimeLine.setTitleColor(UIColor.init(hexString: App_Theme_333333_Color), for: .normal)
+
             if #available(iOS 9.0, *) {
-                weiboTimeLine.layer.add(self.setUpAnimation(weiboTimeLine.layer.position.y - 98, velocity: 5.0), forKey: "weiboTimeLine")
+                weiboTimeLine.layer.add(self.setUpAnimation(weiboTimeLine.layer.position.y - 180, velocity: 5.0), forKey: "weiboTimeLine")
                 shareView.addSubview(weiboTimeLine)
             } else {
                 shareView.addSubview(weiboTimeLine)
@@ -267,55 +279,55 @@ class ShareView: UIView, UIGestureRecognizerDelegate, CAAnimationDelegate {
             maxX = weiboTimeLine.frame.maxX
         }
         
-        if TencentOAuth.iphoneQQInstalled() {
-            qqSeession = UIButton(type: .custom)
-            qqSeession.tag = 103
-            qqSeession.buttonSetImage(UIImage.init(named: "QQ_Normal")!, sImage: UIImage.init(named: "QQ_Pressed")!)
-            shareView.addSubview(qqSeession)
-            qqSeession.reactive.controlEvents(.touchUpInside).observe({ (action) in
-                if self.shareImage == nil {
-                    ShareTools.shareInstance.shareQQSessionWebUrl((Bundle.main.infoDictionary! as NSDictionary).object(forKey: "CFBundleDisplayName") as! String, webTitle: self.shareModel.title,imageUrl: self.shareModel.imageUrl,  webDescription: self.shareModel.desc, webUrl: self.shareUrl)
-                }else{
-                    ShareTools.shareInstance.shareQQScreenShotImage(self.shareImage, type: 0)
-                }
-                self.removwSelf()
-            })
-            qqSeession.frame = CGRect(x: maxX + 16, y: 188, width: 50, height: 50)
-            if #available(iOS 9.0, *) {
-                qqSeession.layer.add(self.setUpAnimation(qqSeession.layer.position.y - 98, velocity: 4.5), forKey: "qqSeession")
-                shareView.addSubview(qqSeession)
-            } else {
-                shareView.addSubview(qqSeession)
-            }
-            maxX = qqSeession.frame.maxX
-        }
+//        if !TencentOAuth.iphoneQQInstalled() {
+//            qqSeession = UIButton(type: .custom)
+//            qqSeession.tag = 103
+//            qqSeession.buttonSetImage(UIImage.init(named: "QQ_Normal")!, sImage: UIImage.init(named: "QQ_Pressed")!)
+//            shareView.addSubview(qqSeession)
+//            qqSeession.reactive.controlEvents(.touchUpInside).observe({ (action) in
+//                if self.shareImage == nil {
+//                    ShareTools.shareInstance.shareQQSessionWebUrl((Bundle.main.infoDictionary! as NSDictionary).object(forKey: "CFBundleDisplayName") as! String, webTitle: self.shareModel.title,imageUrl: self.shareModel.imageUrl,  webDescription: self.shareModel.desc, webUrl: self.shareUrl)
+//                }else{
+//                    ShareTools.shareInstance.shareQQScreenShotImage(self.shareImage, type: 0)
+//                }
+//                self.removwSelf()
+//            })
+//            qqSeession.frame = CGRect(x: maxX + 16, y: 210, width: 50, height: 50)
+//            if #available(iOS 9.0, *) {
+//                qqSeession.layer.add(self.setUpAnimation(qqSeession.layer.position.y - 148, velocity: 4.5), forKey: "qqSeession")
+//                shareView.addSubview(qqSeession)
+//            } else {
+//                shareView.addSubview(qqSeession)
+//            }
+//            maxX = qqSeession.frame.maxX
+//        }
+//
+//        if TencentOAuth.iphoneQZoneInstalled() {
+//            qqTimeLine = UIButton(type: .custom)
+//            qqTimeLine.tag = 104
+//            qqTimeLine.buttonSetImage(UIImage.init(named: "QZone_Normal")!, sImage: UIImage.init(named: "QZone_Pressed")!)
+//            qqTimeLine.frame = CGRect(x: maxX + 16, y: 90, width: 50, height: 50)
+//            qqTimeLine.reactive.controlEvents(.touchUpInside).observe({ (action) in
+//                if self.shareImage == nil {
+//                    ShareTools.shareInstance.shareQQTimeLineUrl((Bundle.main.infoDictionary! as NSDictionary).object(forKey: "CFBundleDisplayName") as! String, webTitle: self.shareModel.title,imageUrl: self.shareModel.imageUrl, webDescription: self.shareModel.desc, webUrl: self.shareUrl)
+//                }else{
+//                    ShareTools.shareInstance.shareQQScreenShotImage(self.shareImage, type: 1)
+//                }
+//                self.removwSelf()
+//            })
+//            qqTimeLine.frame = CGRect(x: maxX + 16, y: 210, width: 50, height: 50)
+//            if #available(iOS 9.0, *) {
+//                qqTimeLine.layer.add(self.setUpAnimation(qqTimeLine.layer.position.y - 148, velocity: 4.0), forKey: "qqTimeLine")
+//                shareView.addSubview(qqTimeLine)
+//            } else {
+//                shareView.addSubview(qqTimeLine)
+//                // Fallback on earlier versions
+//            }
+//            shareView.addSubview(qqTimeLine)
+//            maxX = qqTimeLine.frame.maxX
+//        }
         
-        if TencentOAuth.iphoneQZoneInstalled() {
-            qqTimeLine = UIButton(type: .custom)
-            qqTimeLine.tag = 104
-            qqTimeLine.buttonSetImage(UIImage.init(named: "QZone_Normal")!, sImage: UIImage.init(named: "QZone_Pressed")!)
-            qqTimeLine.frame = CGRect(x: maxX + 16, y: 90, width: 50, height: 50)
-            qqTimeLine.reactive.controlEvents(.touchUpInside).observe({ (action) in
-                if self.shareImage == nil {
-                    ShareTools.shareInstance.shareQQTimeLineUrl((Bundle.main.infoDictionary! as NSDictionary).object(forKey: "CFBundleDisplayName") as! String, webTitle: self.shareModel.title,imageUrl: self.shareModel.imageUrl, webDescription: self.shareModel.desc, webUrl: self.shareUrl)
-                }else{
-                    ShareTools.shareInstance.shareQQScreenShotImage(self.shareImage, type: 1)
-                }
-                self.removwSelf()
-            })
-            qqTimeLine.frame = CGRect(x: maxX + 16, y: 188, width: 50, height: 50)
-            if #available(iOS 9.0, *) {
-                qqTimeLine.layer.add(self.setUpAnimation(qqTimeLine.layer.position.y - 98, velocity: 4.0), forKey: "qqTimeLine")
-                shareView.addSubview(qqTimeLine)
-            } else {
-                shareView.addSubview(qqTimeLine)
-                // Fallback on earlier versions
-            }
-            shareView.addSubview(qqTimeLine)
-            maxX = qqTimeLine.frame.maxX
-        }
-        
-        shareView.frame = CGRect(x: (SCREENWIDTH - maxX)/2, y: 0, width: maxX, height: 188)
+        shareView.frame = CGRect(x: (SCREENWIDTH - maxX)/2, y: 0, width: maxX, height: 150)
         self.detailView.addSubview(shareView)
     }
     

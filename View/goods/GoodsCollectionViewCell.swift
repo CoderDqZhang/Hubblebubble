@@ -45,6 +45,7 @@ class GoodsCollectionViewCell: UICollectionViewCell {
         buyButton = AnimationButton.init(frame: CGRect.zero)
         buyButton.setTitleColor(UIColor.init(hexString: App_Theme_FFFFFF_Color), for: .normal)
         buyButton.layer.cornerRadius = 3.0
+        buyButton.setTitle("立即购买", for: .normal)
         buyButton.titleLabel?.font = App_Theme_PinFan_R_13_Font
         buyButton.backgroundColor = UIColor.init(hexString: App_Theme_FB9E9F_Color)
         self.contentView.addSubview(buyButton)
