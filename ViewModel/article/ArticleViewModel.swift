@@ -22,7 +22,7 @@ class ArticleViewModel: BaseViewModel {
     }
     
     func tableViewDidSelect(_ indexPath:IndexPath) {
-        
+        NavigationPushView(self.controller!, toConroller: DetailArticleViewController())
     }
     
 }
