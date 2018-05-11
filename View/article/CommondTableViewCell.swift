@@ -62,11 +62,13 @@ class CommondTableViewCell: UITableViewCell {
                 make.top.equalTo(self.contentView.snp.top).offset(5)
                 make.size.equalTo(CGSize.init(width: 25, height: 25))
             }
+            
             userName.snp.makeConstraints { (make) in
                 make.left.equalTo(self.avatarImage.snp.right).offset(7)
                 make.top.equalTo(self.contentView.snp.top).offset(16)
                 make.right.equalTo(self.contentView.snp.right).offset(-25)
             }
+            
             contentLabel.snp.makeConstraints { (make) in
                 make.left.equalTo(self.avatarImage.snp.right).offset(7)
                 make.top.equalTo(self.userName.snp.bottom).offset(12)

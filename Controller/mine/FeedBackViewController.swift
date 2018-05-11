@@ -32,6 +32,10 @@ class FeedBackViewController: BaseViewController {
         self.view.addSubview(self.textView)
         
         self.textField = UITextField.init()
+        self.textField.addPaddingLeft(10)
+        self.textField.font = App_Theme_PinFan_R_15_Font
+        self.textField.textColor = UIColor.init(hexString: App_Theme_A0A0A0_Color)
+        self.textField.setPlaceholderFont(App_Theme_PinFan_R_15_Font, color: UIColor.init(hexString: App_Theme_DDE0E5_Color))
         self.textField.placeholder = "请填写您的联系方式（手机号或者邮箱）"
         self.view.addSubview(textField)
         
@@ -41,7 +45,7 @@ class FeedBackViewController: BaseViewController {
         button.backgroundColor = UIColor.init(hexString: App_Theme_FB9E9F_Color)
         self.view.addSubview(button)
         button.reactive.controlEvents(.touchUpInside).observe { (button) in
-            if (self.textView.text == "" || self.textField.text == "") {
+            if (self.textView.text == "" || self.textField.isEmpty) {
                 _ = Tools.shareInstance.showLoading(KWINDOWDS(), msg: "请输入反馈意见")
                 return
             }

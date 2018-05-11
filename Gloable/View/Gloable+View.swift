@@ -45,7 +45,6 @@ typealias CustomButtonClouse = (_ tag:NSInteger) -> Void
 class CustomTouchButton: AnimationTouchView {
     
     var topButton:UIButton!
-    var backButton:UIButton!
     
     var isEnabled:Bool = false
     
@@ -53,18 +52,8 @@ class CustomTouchButton: AnimationTouchView {
         super.init(frame: frame) {
             pressClouse(tag!)
         }
-        self.layer.cornerRadius = frame.size.height / 2
+        self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
-        
-        
-        if type == .withBackBoarder {
-            backButton = UIButton.init(type: .custom)
-            backButton.backgroundColor = UIColor.init(hexString: App_Theme_FEE3E5_Color)
-            self.addSubview(backButton)
-            backButton.layer.cornerRadius = (frame.size.height - 2) / 2
-            backButton.layer.masksToBounds = true
-            backButton.frame = CGRect.init(x: 0, y: 2, width: frame.size.width, height: frame.size.height - 2)
-        }
         
         
         topButton = UIButton.init(type: .custom)
@@ -73,6 +62,7 @@ class CustomTouchButton: AnimationTouchView {
         topButton.titleLabel?.font = titleFont
         topButton.layer.masksToBounds = true
         topButton.frame = CGRect.init(x: 0, y: 0, width: frame.size.width, height: frame.size.height - 2)
+        topButton.setTitleColor(UIColor.init(hexString: App_Theme_FFFFFF_Color), for: .normal)
         
         if tag != nil {
             self.tag = tag!
@@ -81,13 +71,10 @@ class CustomTouchButton: AnimationTouchView {
         case .withNoBoarder:
             self.setWithNoBoarderButton()
         case .withBoarder:
-            topButton.layer.cornerRadius = (frame.height - 2) / 2
             self.setWithBoarderButton()
         case .withBackBoarder:
-            topButton.layer.cornerRadius = (frame.height - 2) / 2
             self.setwithonBoarderButton()
         default:
-            topButton.layer.cornerRadius = (frame.height - 2) / 2
             self.setWithDisbleBoarderButton()
         }
     }
@@ -95,9 +82,9 @@ class CustomTouchButton: AnimationTouchView {
     func setButtonIsEnabled(isEnabled:Bool){
         topButton.isEnabled = isEnabled
         if isEnabled {
-            topButton.backgroundColor = UIColor.init(hexString: App_Theme_FC4652_Color, andAlpha: 1)
+            topButton.backgroundColor = UIColor.init(hexString: App_Theme_FB9E9F_Color, andAlpha: 1)
         }else{
-            topButton.backgroundColor = UIColor.init(hexString: App_Theme_FC4652_Color, andAlpha: 0.7)
+            topButton.backgroundColor = UIColor.init(hexString: App_Theme_FB9E9F_Color, andAlpha: 0.7)
         }
     }
     
@@ -120,7 +107,7 @@ class CustomTouchButton: AnimationTouchView {
     func setwithonBoarderButton(){
         
         topButton.setTitleColor(UIColor.white, for: UIControlState())
-        topButton.buttonSetThemColor(App_Theme_F94856_Color, selectColor: App_Theme_F94856_Color, size: CGSize.init(width: self.frame.size.width, height: self.frame.size.height))
+        topButton.buttonSetThemColor(App_Theme_FB9E9F_Color, selectColor: App_Theme_FB9E9F_Color, size: CGSize.init(width: self.frame.size.width, height: self.frame.size.height))
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -10,26 +10,20 @@ import UIKit
 
 typealias TapGestureRecognizerClouse = ()->Void
 
-class UITapGestureRecognizerManager: NSObject {
+var tapGestureRecognizerClouse:TapGestureRecognizerClouse!
+class UITapGestureRecognizerManager {
     
-    var tapGestureRecognizerClouse:TapGestureRecognizerClouse!
-    
-    override init() {
-        super.init()
-    }
-    
-    static let shareInstance = UITapGestureRecognizerManager()
-    
-    func initTapGestureRecognizer(tapGestureRecognizer:@escaping TapGestureRecognizerClouse) -> UITapGestureRecognizer{
+    class func initTapGestureRecognizer(view:UIView?,tapGestureRecognizer:@escaping TapGestureRecognizerClouse) -> UITapGestureRecognizer{
+        view?.isUserInteractionEnabled = true
         let singleTap = UITapGestureRecognizer.init(target: self, action: #selector(UITapGestureRecognizerManager.tapSelector))
         singleTap.numberOfTapsRequired = 1
         singleTap.numberOfTouchesRequired = 1
-
-        self.tapGestureRecognizerClouse = tapGestureRecognizer
+        view?.addGestureRecognizer(singleTap)
+        tapGestureRecognizerClouse = tapGestureRecognizer
         return singleTap
     }
 
     @objc func tapSelector(){
-        self.tapGestureRecognizerClouse()
+        tapGestureRecognizerClouse()
     }
 }

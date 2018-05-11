@@ -28,7 +28,7 @@ class MineViewModel: BaseViewModel {
     func tableViewDidSelect(_ indexPath:IndexPath){
         switch indexPath.section {
         case 0:
-            NavigationPushView(self.controller!, toConroller: ProfileViewController())
+            NavigationPushView(self.controller!, toConroller: LoginViewController())
         case 1:
             NavigationPushView(self.controller!, toConroller: RedViewController())
         case 2:

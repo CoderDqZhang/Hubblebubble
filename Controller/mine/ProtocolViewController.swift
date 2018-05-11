@@ -1,19 +1,18 @@
 //
-//  SettingViewController.swift
+//  ProtocolViewController.swift
 //  Hubblebubble
 //
-//  Created by Zhang on 2018/5/9.
+//  Created by Zhang on 2018/5/11.
 //  Copyright © 2018 Zhang. All rights reserved.
 //
 
 import UIKit
 
-class SettingViewController: BaseViewController {
+class ProtocolViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.bindViewModel(viewModel: SettingViewModel(), controller: self)
-        self.setUpTableView(style: .grouped, cells: [GloableTitleLabelTitleDescCell.self], controller: self)
+
         // Do any additional setup after loading the view.
     }
 

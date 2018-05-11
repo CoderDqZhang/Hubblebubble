@@ -143,6 +143,12 @@
 		1FE3A03720A532D70097D7A3 /* timg8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FE3A02E20A532D70097D7A3 /* timg8.jpg */; };
 		1FE3A03920A534CF0097D7A3 /* CommondTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3A03820A534CF0097D7A3 /* CommondTableViewCell.swift */; };
 		1FE3A03B20A5376E0097D7A3 /* CommondDescTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3A03A20A5376E0097D7A3 /* CommondDescTableViewCell.swift */; };
+		1FE3A03D20A5433B0097D7A3 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3A03C20A5433B0097D7A3 /* SettingViewModel.swift */; };
+		1FE3A03F20A544FE0097D7A3 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3A03E20A544FE0097D7A3 /* AboutViewController.swift */; };
+		1FE3A04220A554070097D7A3 /* NSFileManager+CacheSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3A04120A554070097D7A3 /* NSFileManager+CacheSize.m */; };
+		1FE3A04420A570680097D7A3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3A04320A570680097D7A3 /* LoginViewController.swift */; };
+		1FE3A04620A57E780097D7A3 /* ProtocolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3A04520A57E780097D7A3 /* ProtocolViewController.swift */; };
+		1FE3A04920A583AB0097D7A3 /* UITextField+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3A04820A583AB0097D7A3 /* UITextField+Category.m */; };
 		A3A597641AAACEA4AD401E8F /* Pods_Hubblebubble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D38427E3FC2460E9B93CB1 /* Pods_Hubblebubble.framework */; };
 /* End PBXBuildFile section */
 
@@ -330,6 +336,14 @@
 		1FE3A02E20A532D70097D7A3 /* timg8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = timg8.jpg; sourceTree = "<group>"; };
 		1FE3A03820A534CF0097D7A3 /* CommondTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommondTableViewCell.swift; sourceTree = "<group>"; };
 		1FE3A03A20A5376E0097D7A3 /* CommondDescTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommondDescTableViewCell.swift; sourceTree = "<group>"; };
+		1FE3A03C20A5433B0097D7A3 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		1FE3A03E20A544FE0097D7A3 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		1FE3A04020A554070097D7A3 /* NSFileManager+CacheSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+CacheSize.h"; sourceTree = "<group>"; };
+		1FE3A04120A554070097D7A3 /* NSFileManager+CacheSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+CacheSize.m"; sourceTree = "<group>"; };
+		1FE3A04320A570680097D7A3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1FE3A04520A57E780097D7A3 /* ProtocolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolViewController.swift; sourceTree = "<group>"; };
+		1FE3A04720A583AB0097D7A3 /* UITextField+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+Category.h"; sourceTree = "<group>"; };
+		1FE3A04820A583AB0097D7A3 /* UITextField+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Category.m"; sourceTree = "<group>"; };
 		32D38427E3FC2460E9B93CB1 /* Pods_Hubblebubble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hubblebubble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6DB9248D1303EDDE112F756 /* Pods-Hubblebubble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hubblebubble.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hubblebubble/Pods-Hubblebubble.release.xcconfig"; sourceTree = "<group>"; };
 		DD69096358812CB9C09FD734 /* Pods-Hubblebubble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hubblebubble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hubblebubble/Pods-Hubblebubble.debug.xcconfig"; sourceTree = "<group>"; };
@@ -665,6 +679,9 @@
 				1FE3997620A3EBA10097D7A3 /* HistoryArticleViewController.swift */,
 				1FE3997420A3EB220097D7A3 /* HistoryPagerController.swift */,
 				1FE3996820A2BA670097D7A3 /* HelpViewController.swift */,
+				1FE3A03E20A544FE0097D7A3 /* AboutViewController.swift */,
+				1FE3A04320A570680097D7A3 /* LoginViewController.swift */,
+				1FE3A04520A57E780097D7A3 /* ProtocolViewController.swift */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -749,6 +766,10 @@
 				1F6B4C07209FFFAD007F355C /* NSString+StringSize.m */,
 				1F6B4C08209FFFAD007F355C /* NSDate+LSCore.h */,
 				1F6B4C09209FFFAD007F355C /* UIImage+fixOrientation.m */,
+				1FE3A04020A554070097D7A3 /* NSFileManager+CacheSize.h */,
+				1FE3A04120A554070097D7A3 /* NSFileManager+CacheSize.m */,
+				1FE3A04720A583AB0097D7A3 /* UITextField+Category.h */,
+				1FE3A04820A583AB0097D7A3 /* UITextField+Category.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -873,6 +894,7 @@
 				1FE3998020A3F1FD0097D7A3 /* RedViewModel.swift */,
 				1FE3998620A409870097D7A3 /* CollectArticleViewModel.swift */,
 				1FE3998820A409980097D7A3 /* CollectGoodsViewModel.swift */,
+				1FE3A03C20A5433B0097D7A3 /* SettingViewModel.swift */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -1109,6 +1131,7 @@
 				1F5EC9B720A019E400282110 /* UserInfoModel.swift in Sources */,
 				1FE3996320A2B9960097D7A3 /* SettingViewController.swift in Sources */,
 				1F6B4C10209FFFAD007F355C /* UIViewController+DismissKeyboard.m in Sources */,
+				1FE3A04420A570680097D7A3 /* LoginViewController.swift in Sources */,
 				1FE3998920A409980097D7A3 /* CollectGoodsViewModel.swift in Sources */,
 				1FE3998320A409070097D7A3 /* ColloectPagerController.swift in Sources */,
 				1FE3996B20A2C9B80097D7A3 /* ColorTools.swift in Sources */,
@@ -1141,7 +1164,9 @@
 				1F6B4BF1209FFFA8007F355C /* NSTimer.swift in Sources */,
 				1F5EC9F520A1897700282110 /* ArticleHeaderTableViewCell.swift in Sources */,
 				1FE3996520A2B9C10097D7A3 /* ProfileViewController.swift in Sources */,
+				1FE3A04920A583AB0097D7A3 /* UITextField+Category.m in Sources */,
 				1F6B4BDA209FFF8E007F355C /* ShareTools.swift in Sources */,
+				1FE3A03D20A5433B0097D7A3 /* SettingViewModel.swift in Sources */,
 				1F6B4BC7209FFDE5007F355C /* AppThemeTool.swift in Sources */,
 				1F6B4C0C209FFFAD007F355C /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
 				1FE3995B20A2B9510097D7A3 /* FriendsViewController.swift in Sources */,
@@ -1162,6 +1187,7 @@
 				1F5EC9F720A1950600282110 /* GoodsPagerViewController.swift in Sources */,
 				1F6B4BD7209FFF8E007F355C /* CacheTools.swift in Sources */,
 				1F6B4C51209FFFE8007F355C /* TAAnimatedDotView.m in Sources */,
+				1FE3A03F20A544FE0097D7A3 /* AboutViewController.swift in Sources */,
 				1FE3997520A3EB220097D7A3 /* HistoryPagerController.swift in Sources */,
 				1F5EC9BB20A1285C00282110 /* ReCommendTableViewCell.swift in Sources */,
 				1F5EC9E520A1471300282110 /* AloneViewController.swift in Sources */,
@@ -1188,12 +1214,14 @@
 				1FE3997920A3EBE20097D7A3 /* HistoryArticleTableViewCell.swift in Sources */,
 				1F6B4BD8209FFF8E007F355C /* ScalImageManager.swift in Sources */,
 				1FE3996920A2BA670097D7A3 /* HelpViewController.swift in Sources */,
+				1FE3A04620A57E780097D7A3 /* ProtocolViewController.swift in Sources */,
 				1F6B4BF3209FFFA8007F355C /* DispatchQueueExtentions.swift in Sources */,
 				1FE3A02220A530410097D7A3 /* DetailViewModel.swift in Sources */,
 				1FE3998120A3F1FD0097D7A3 /* RedViewModel.swift in Sources */,
 				1FE3A03920A534CF0097D7A3 /* CommondTableViewCell.swift in Sources */,
 				1F6B4BD9209FFF8E007F355C /* Tools.swift in Sources */,
 				1F6B4C12209FFFAD007F355C /* NSString+StringSize.m in Sources */,
+				1FE3A04220A554070097D7A3 /* NSFileManager+CacheSize.m in Sources */,
 				1FE3995520A293860097D7A3 /* MineHeaderTableViewCell.swift in Sources */,
 				1F6B4C48209FFFE8007F355C /* UITableView+FDKeyedHeightCache.m in Sources */,
 				1F6B4C4D209FFFE8007F355C /* UIView+SDExtension.m in Sources */,

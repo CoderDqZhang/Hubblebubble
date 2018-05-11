@@ -12,6 +12,7 @@
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "UIViewController+DismissKeyboard.h"
 #import "UIViewController+hideExcessLine.h"
+#import "UITextField+Category.h"
 #import "UIColor+Hex.h"
 #import "UIImage+PureColor.h"
 #import "SDCycleScrollView.h"
