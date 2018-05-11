@@ -97,7 +97,7 @@ class LoginViewController: BaseViewController {
             make.centerX.equalToSuperview()
         }
         
-        self.loginButton = CustomTouchButton.init(frame: CGRect.init(x: 0, y: 0, width: SCREENWIDTH - 52, height: 44), title: "发送验证码", tag: 0, titleFont: App_Theme_PinFan_R_15_Font, type: CustomButtonType.withBackBoarder, pressClouse: { (tag) in
+        self.loginButton = CustomTouchButton.init(frame: CGRect.init(x: 0, y: 0, width: SCREENWIDTH - 52, height: 44), title: "登录", tag: 0, titleFont: App_Theme_PinFan_R_15_Font, type: CustomButtonType.withBackBoarder, pressClouse: { (tag) in
         })
         self.view.addSubview(self.loginButton)
         
