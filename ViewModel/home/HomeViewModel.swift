@@ -19,7 +19,9 @@ class HomeViewModel: BaseViewModel {
     }
     
     func tableViewDidSelect(_ indexPath:IndexPath) {
-        
+        KWINDOWDS().addSubview(GloableNotificationView.init(frame: CGRect.init(x: 0, y: 0, width: SCREENWIDTH, height: SCREENHEIGHT), type: .Notification, title: "活动通知", subTitle: "Codeless drop-in universal library allows to prevent issues of keyboard slidiupand cover UITextField/UITextView. Neither need to write any code nor any setup requiredand much more.", buttonTitle: "立即前往", gloableNotificationViewButtonClouse: {
+            
+        }))
     }
     
 }

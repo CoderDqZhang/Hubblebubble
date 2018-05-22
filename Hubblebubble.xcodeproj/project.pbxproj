@@ -149,6 +149,7 @@
 		1FE3A04420A570680097D7A3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3A04320A570680097D7A3 /* LoginViewController.swift */; };
 		1FE3A04620A57E780097D7A3 /* ProtocolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3A04520A57E780097D7A3 /* ProtocolViewController.swift */; };
 		1FE3A04920A583AB0097D7A3 /* UITextField+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3A04820A583AB0097D7A3 /* UITextField+Category.m */; };
+		1FE3A04B20B305500097D7A3 /* GloableNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3A04A20B305500097D7A3 /* GloableNotificationView.swift */; };
 		A3A597641AAACEA4AD401E8F /* Pods_Hubblebubble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D38427E3FC2460E9B93CB1 /* Pods_Hubblebubble.framework */; };
 /* End PBXBuildFile section */
 
@@ -344,6 +345,7 @@
 		1FE3A04520A57E780097D7A3 /* ProtocolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolViewController.swift; sourceTree = "<group>"; };
 		1FE3A04720A583AB0097D7A3 /* UITextField+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+Category.h"; sourceTree = "<group>"; };
 		1FE3A04820A583AB0097D7A3 /* UITextField+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Category.m"; sourceTree = "<group>"; };
+		1FE3A04A20B305500097D7A3 /* GloableNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GloableNotificationView.swift; sourceTree = "<group>"; };
 		32D38427E3FC2460E9B93CB1 /* Pods_Hubblebubble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hubblebubble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6DB9248D1303EDDE112F756 /* Pods-Hubblebubble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hubblebubble.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hubblebubble/Pods-Hubblebubble.release.xcconfig"; sourceTree = "<group>"; };
 		DD69096358812CB9C09FD734 /* Pods-Hubblebubble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hubblebubble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hubblebubble/Pods-Hubblebubble.debug.xcconfig"; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 				1F5EC9C320A1291900282110 /* AnimationTouchViewButton.swift */,
 				1F5EC9C520A1292300282110 /* GloableTableViewCell.swift */,
 				1F5EC9C720A1296800282110 /* AnimationView.swift */,
+				1FE3A04A20B305500097D7A3 /* GloableNotificationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1187,6 +1190,7 @@
 				1F5EC9F720A1950600282110 /* GoodsPagerViewController.swift in Sources */,
 				1F6B4BD7209FFF8E007F355C /* CacheTools.swift in Sources */,
 				1F6B4C51209FFFE8007F355C /* TAAnimatedDotView.m in Sources */,
+				1FE3A04B20B305500097D7A3 /* GloableNotificationView.swift in Sources */,
 				1FE3A03F20A544FE0097D7A3 /* AboutViewController.swift in Sources */,
 				1FE3997520A3EB220097D7A3 /* HistoryPagerController.swift in Sources */,
 				1F5EC9BB20A1285C00282110 /* ReCommendTableViewCell.swift in Sources */,

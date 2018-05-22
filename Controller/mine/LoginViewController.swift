@@ -37,7 +37,7 @@ class LoginViewController: BaseViewController {
         self.locationNumber = UIButton.init(type: .custom)
         self.locationNumber.setTitle("+86", for: .normal)
         self.locationNumber.setTitleColor(UIColor.init(hexString: App_Theme_DDE0E5_Color), for: .normal)
-        self.locationNumber.titleLabel?.font = App_Theme_PinFan_R_15_Font
+        self.locationNumber.titleLabel?.font = App_Theme_PinFan_R_18_Font
         phoneView.addSubview(self.locationNumber)
         
         self.mobileTextField = UITextField.init()
@@ -122,7 +122,7 @@ class LoginViewController: BaseViewController {
         
         lineView.snp.makeConstraints { (make) in
             make.left.equalTo(self.locationNumber.snp.right).offset(0)
-            make.size.equalTo(CGSize.init(width: 0.5, height: 30))
+            make.size.equalTo(CGSize.init(width: 1, height: 30))
             make.centerY.equalToSuperview()
         }
         

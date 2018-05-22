@@ -105,7 +105,6 @@ class CustomTouchButton: AnimationTouchView {
     }
     
     func setwithonBoarderButton(){
-        
         topButton.setTitleColor(UIColor.white, for: UIControlState())
         topButton.buttonSetThemColor(App_Theme_FB9E9F_Color, selectColor: App_Theme_FB9E9F_Color, size: CGSize.init(width: self.frame.size.width, height: self.frame.size.height))
     }
