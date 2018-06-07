@@ -36,7 +36,7 @@ static JKDBHelper *_instance = nil;
     NSString *docsdir = [NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSFileManager *filemanage = [NSFileManager defaultManager];
     if (directoryName == nil || directoryName.length == 0) {
-        docsdir = [docsdir stringByAppendingPathComponent:@"LiangPiao"];
+        docsdir = [docsdir stringByAppendingPathComponent:@"Hubblebubble"];
     } else {
         docsdir = [docsdir stringByAppendingPathComponent:directoryName];
     }
@@ -45,7 +45,7 @@ static JKDBHelper *_instance = nil;
     if (!exit || !isDir) {
         [filemanage createDirectoryAtPath:docsdir withIntermediateDirectories:YES attributes:nil error:nil];
     }
-    NSString *dbpath = [docsdir stringByAppendingPathComponent:@"liangpiao.sqlite"];
+    NSString *dbpath = [docsdir stringByAppendingPathComponent:@"hubblebubble.sqlite"];
     return dbpath;
 }
 

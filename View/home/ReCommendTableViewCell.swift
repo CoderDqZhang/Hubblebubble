@@ -56,6 +56,15 @@ class ReCommendTableViewCell: UITableViewCell {
         self.updateConstraints()
     }
     
+    func cellSetData(_ model:Recommod){
+        UIImageViewManger.sd_imageView(url: model.cover, imageView: self.postImage, placeholderImage: nil) { (image, error, cacheType, url) in
+            
+        }
+        title.text = model.title
+        readNumber.text = "\(model.pv!)"
+        dateLabel.text = "日期：\(model.publish!)"
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

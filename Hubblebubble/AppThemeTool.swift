@@ -14,8 +14,8 @@ class AppleThemeTool {
     class func setUpToolBarColor() {
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor:UIColor.init(hexString: App_Theme_333333_Color) ?? ""], for: UIControlState())
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor:UIColor.init(hexString: App_Theme_F94856_Color) ?? ""], for: .selected)
-        UITabBar.appearance().tintColor = UIColor.init(hexString: App_Theme_F94856_Color)
         UITabBar.appearance().backgroundColor = UIColor.init(hexString: App_Theme_FFFFFF_Color, andAlpha: 0.5)
+        UITabBar.appearance().layer.insertSublayer(ColorTools.changeColor(startColor: UIColor.init(hexString: App_Theme_9FC8FC_Color), endColor: UIColor.init(hexString: App_Theme_F4A0E7_Color), frame: CGRect.init(x: 0, y: 0, width: SCREENWIDTH, height: 64)), at: 0)
         
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().barTintColor = UIColor.clear

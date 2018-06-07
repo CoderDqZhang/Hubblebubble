@@ -48,10 +48,13 @@ class CommondTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setData(username:String, image:UIImage, content:String){
-        avatarImage.image = image
-        userName.text = username
-        contentLabel.text = content
+    func cellsetData(model:ArticleDetailModel){
+        UIImageViewManger.sd_imageView(url: model.articleInfo.cover, imageView: avatarImage, placeholderImage: nil) { (image, error, cacheType, url) in
+            
+        }
+        
+        userName.text =  model.articleInfo.author
+//        contentLabel.text = model.articleInfo
     }
     
     

@@ -10,15 +10,31 @@ import UIKit
 
 class HomeViewController: BaseViewController {
 
+    var homeViewModel:BaseViewModel! = HomeViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.bindViewModel(viewModel: HomeViewModel(), controller: self)
+        self.bindViewModel(viewModel: homeViewModel, controller: self)
         self.setUpTableView(style: .plain, cells: [ReCommendTableViewCell.self], controller: self)
         self.navigationItem.title = "心情推荐"
         
-       
+        self.setUpRefreshData {
+            (self.homeViewModel as! HomeViewModel).page = 1
+            (self.homeViewModel as! HomeViewModel).requestHomeData()
+        }
+        self.setUpLoadMoreData {
+            if (self.homeViewModel as! HomeViewModel).page == (self.homeViewModel as! HomeViewModel).total_page {
+                self.stopLoadMoreData()
+                return
+            }
+            (self.homeViewModel as! HomeViewModel).page = (self.homeViewModel as! HomeViewModel).page + 1
+            (self.homeViewModel as! HomeViewModel).requestHomeData()
+        }
 //       self.navigationController?.navigationBar.isTranslucent = true
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewControllerSetNavigationItemBack() {
+        
     }
     
     override func setUpViewNavigationItem() {

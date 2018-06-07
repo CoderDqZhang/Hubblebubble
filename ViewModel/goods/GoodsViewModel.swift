@@ -8,23 +8,57 @@
 
 import UIKit
 
+typealias GoodlsListClouse = (_ category_list:NSMutableArray) ->Void
+
 class GoodsViewModel: BaseViewModel {
+    
+    var page = 1
+    var total_page:Int!
+    var category:CategoryGoods!
+    var model:GoodsModel!
+    var banner_list:NSMutableArray!
+    
     override init() {
         super.init()
+        
     }
     
     func collectViewGoodsCollectionViewCellSetData(indexPath:IndexPath, cell:GoodsCollectionViewCell) {
-        
+        cell.cellSetData(model: model.itemList[indexPath.row])
     }
     
-    func tableViewArticleHeaderTableViewCellSetData(_ indexPath:IndexPath, cell:ArticleHeaderTableViewCell) {
-        
+    func cellBanner(_ headerView: GoodHeaderCollectionViewCell){
+        if self.model != nil {
+            headerView.cellSetData(model: self.model)
+        }
     }
     
     func collectDidSelect(_ indexPath:IndexPath) {
         
     }
     
+    func requestData(){
+        let url = "\(ROOT_URL)\(GOODS_LIST_CATEGORY)"
+        let parameters = ["page":self.page,"category_id":self.category.id]
+        BaseNetWorke.sharedInstance.postUrlWithString(url, parameters: parameters as AnyObject).observe { (resultDic) in
+            if !resultDic.isCompleted{
+                if self.page == 1 {
+                    self.total_page = (resultDic.value as! NSDictionary).object(forKey: "total_page") as! Int
+                    self.model = GoodsModel.init(fromDictionary: resultDic.value as! NSDictionary)
+                    (self.controller as! GoodsViewController).collectView.reloadData()
+                    if (self.controller as! GoodsViewController).collectView.mj_header != nil {
+                        (self.controller as! GoodsViewController).collectView.mj_header.endRefreshing()
+                    }
+                }else{
+                    self.model.itemList.append(contentsOf: GoodsModel.init(fromDictionary: resultDic.value as! NSDictionary).itemList)
+                    if (self.controller as! GoodsViewController).collectView.mj_footer != nil {
+                        (self.controller as! GoodsViewController).collectView.mj_footer.endRefreshing()
+                    }
+                }
+                
+            }
+        }
+    }
 }
 
 extension GoodsViewModel : UICollectionViewDelegate {
@@ -39,7 +73,7 @@ extension GoodsViewModel : UICollectionViewDelegate {
             let kindView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: GoodHeaderCollectionViewCell.description(), for: indexPath)
             let height:CGFloat = (IPHONEWIDTH320 ? 137 : IPHONEWIDTH375 ? 160 : 180) + 8
             kindView.frame = CGRect.init(x: 0, y: 0, width: SCREENWIDTH, height: height)
-//            self.cellBanner(headerView: kindView as! GoodHeaderCollectionViewCell)
+            self.cellBanner(kindView as! GoodHeaderCollectionViewCell)
             return kindView
         }else{
             let kindView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: GoodFooterCollectionViewCell.description(), for: indexPath)
@@ -52,7 +86,7 @@ extension GoodsViewModel : UICollectionViewDelegate {
 
 extension GoodsViewModel : UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.model == nil ? 0 : self.model.itemList.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int
@@ -66,7 +100,6 @@ extension GoodsViewModel : UICollectionViewDataSource {
         self.collectViewGoodsCollectionViewCellSetData(indexPath: indexPath, cell: collectViewCell as! GoodsCollectionViewCell)
         return collectViewCell
     }
-    
 }
 
 extension GoodsViewModel : UICollectionViewDelegateFlowLayout {

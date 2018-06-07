@@ -9,6 +9,8 @@
 import Foundation
 import SwifterSwift
 
+let APPVERSION = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+
 let IPHONE_VERSION:Int = (UIDevice.current.systemVersion as! NSString).integerValue
 let IPHONE_VERSION_LAST9 = IPHONE_VERSION >= 9 ? true:false
 let IPHONE_VERSION_LAST10 = IPHONE_VERSION >= 10 ? true:false

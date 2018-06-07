@@ -257,7 +257,7 @@ class GloableTitleLabelTitleDescCell: UITableViewCell {
 }
 
 class GloabImageTitleAndRightCell: UITableViewCell {
-    var leftImage:UIImageView!
+    var leftImageView:UIImageView!
     var titleLabel:UILabel!
     var lineLable:GloabLineView!
     var rightImage:UIImageView!
@@ -269,8 +269,8 @@ class GloabImageTitleAndRightCell: UITableViewCell {
     }
     
     func setUpView() {
-        leftImage = UIImageView.init()
-        self.addSubview(leftImage)
+        leftImageView = UIImageView.init()
+        self.addSubview(leftImageView)
         
         titleLabel = UILabel()
         titleLabel.font = App_Theme_PinFan_M_15_Font
@@ -293,6 +293,7 @@ class GloabImageTitleAndRightCell: UITableViewCell {
     
     
     func setData(_ leftImage: UIImage,_ title:String ) {
+        leftImageView.image = leftImage
         titleLabel.text = title
     }
     
@@ -303,14 +304,14 @@ class GloabImageTitleAndRightCell: UITableViewCell {
     override func updateConstraints() {
         if !self.didMakeConstraints {
             
-            leftImage.snp.makeConstraints { (make) in
+            leftImageView.snp.makeConstraints { (make) in
                 make.left.equalTo(self.contentView.snp.left).offset(20)
                 make.centerY.equalToSuperview()
-                make.size.equalTo(CGSize.init(width: 40, height: 40))
+                make.size.equalTo(CGSize.init(width: 20, height: 20))
             }
             
             titleLabel.snp.makeConstraints({ (make) in
-                make.left.equalTo(self.leftImage.snp.right).offset(20)
+                make.left.equalTo(self.leftImageView.snp.right).offset(20)
                 make.centerY.equalTo(self.contentView.snp.centerY).offset(0)
                 make.width.equalTo(170)
             })

@@ -13,11 +13,11 @@ class ArticelDescTableViewCell: UITableViewCell {
     var titleLabel:UILabel!
     var authonLabel:UILabel!
     var dateLabel:UILabel!
-    var descLabel:UILabel!
-    var postImage:UIImageView!
     
     var button:AnimationButton!
     var readnumber:UILabel!
+    
+    var contentImageTitleView:UIView!
     
     var lineLable:GloabLineView!
     
@@ -43,20 +43,14 @@ class ArticelDescTableViewCell: UITableViewCell {
         dateLabel.setUpLabel(App_Theme_PinFan_R_10_Font, UIColor.init(hexString: App_Theme_DDE0E5_Color))
         self.contentView.addSubview(dateLabel)
         
-        descLabel = UILabel.init()
-        descLabel.numberOfLines = 0
-        descLabel.setUpLabel(App_Theme_PinFan_R_13_Font, UIColor.init(hexString: App_Theme_A0A0A0_Color))
-        self.contentView.addSubview(descLabel)
-        
-        postImage = UIImageView.init()
-        self.contentView.addSubview(postImage)
+        contentImageTitleView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: SCREENWIDTH, height: SCREENHEIGHT * 3))
+        self.contentView.addSubview(contentImageTitleView)
         
         button = AnimationButton.init(frame: CGRect.zero)
         button.setTitle("进店即可获得折扣", for: .normal)
         button.backgroundColor = UIColor.init(hexString: App_Theme_FB9E9F_Color)
         button.layer.cornerRadius = 5
-        
-        self.contentView.addSubview(button)
+        contentImageTitleView.addSubview(button)
         
         readnumber = UILabel.init()
         readnumber.numberOfLines = 0
@@ -69,14 +63,50 @@ class ArticelDescTableViewCell: UITableViewCell {
         self.updateConstraints()
     }
     
-    func setData(title:String, desc:String, authon:String, date:String, image:UIImage, red:String){
-        titleLabel.text = title
-        authonLabel.text = authon
-        dateLabel.text = date
-        descLabel.text = desc
-        postImage.image = image
-        readnumber.text = red
+    func cellsetData(model:ArticleDetailModel){
+
+        let strs = (model.articleInfo.content! as NSString).replacingOccurrences(of: "<img>", with: "g")
+        let contentStr = strs.split(separator: "g")
+        var frame = CGRect.init(x: 0, y: 0, width: SCREENWIDTH - 50, height: 0)
+        var strHeight:CGFloat = 0
+        for i in  0...contentStr.count - 1 {
+            frame.size.height = (contentStr[i] as NSString).height(with: App_Theme_PinFan_R_13_Font, constrainedToWidth: SCREENHEIGHT - 50)
+            strHeight = (contentStr[i] as NSString).height(with: App_Theme_PinFan_R_13_Font, constrainedToWidth: SCREENHEIGHT - 50)
+            contentImageTitleView.addSubview(self.setUpText(str: String(contentStr[i]), frame: frame))
+            frame.origin.y = frame.origin.y + strHeight + 20
+            frame.size.height = 100
+            contentImageTitleView.addSubview(self.setUpImageView(str: model.images[i], frame: frame))
+            frame.origin.y = frame.origin.y + 100
+        }
+        contentImageTitleView.snp.updateConstraints({ (make) in
+            make.height.equalTo(frame.maxY)
+        })
+            
+        titleLabel.text = model.articleInfo.title
+        authonLabel.text = model.articleInfo.author
+        dateLabel.text = model.articleInfo.publish
+        readnumber.text = "\(model.articleInfo.pv!)"
         self.contentView.updateConstraintsIfNeeded()
+        
+        button.reactive.controlEvents(.touchUpInside).observe { (button) in
+            SHARE_APPLICATION.openURL(URL.init(string: model.articleInfo.tbItemUrl)!)
+        }
+    }
+    
+    func setUpText(str:String, frame:CGRect) ->UILabel{
+        let descLabel = UILabel.init(frame: frame)
+        descLabel.numberOfLines = 0
+        descLabel.setUpLabel(App_Theme_PinFan_R_13_Font, UIColor.init(hexString: App_Theme_A0A0A0_Color))
+        descLabel.text = str
+        return descLabel
+    }
+    
+    func setUpImageView(str:String, frame:CGRect) ->UIImageView{
+        let postImage = UIImageView.init(frame: frame)
+        UIImageViewManger.sd_imageView(url: str, imageView: postImage, placeholderImage: nil) { (image, error, cacheType, url) in
+            
+        }
+        return postImage
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -96,23 +126,23 @@ class ArticelDescTableViewCell: UITableViewCell {
                 make.top.equalTo(self.titleLabel.snp.bottom).offset(10)
                 make.right.equalTo(self.contentView.snp.right).offset(-25)
             }
+            
             dateLabel.snp.makeConstraints { (make) in
                 make.left.equalTo(self.authonLabel.snp.right).offset(25)
                 make.top.equalTo(self.titleLabel.snp.bottom).offset(10)
             }
-            descLabel.snp.makeConstraints { (make) in
+            
+            contentImageTitleView.snp.makeConstraints { (make) in
                 make.left.equalTo(self.contentView.snp.left).offset(25)
                 make.top.equalTo(self.authonLabel.snp.bottom).offset(15)
                 make.right.equalTo(self.contentView.snp.right).offset(-25)
+                make.bottom.equalTo(self.contentView.snp.bottom).offset(-15)
+                make.height.equalTo(100)
             }
-            postImage.snp.makeConstraints { (make) in
-                make.left.equalTo(self.contentView.snp.left).offset(25)
-                make.top.equalTo(self.descLabel.snp.bottom).offset(15)
-                make.right.equalTo(self.contentView.snp.right).offset(-25)
-            }
+            
             button.snp.makeConstraints { (make) in
                 make.left.equalTo(self.contentView.snp.left).offset(25)
-                make.top.equalTo(self.postImage.snp.bottom).offset(15)
+                make.bottom.equalTo(self.contentImageTitleView.snp.bottom).offset(-25)
                 make.height.equalTo(59)
                 make.right.equalTo(self.contentView.snp.right).offset(-25)
             }

@@ -10,11 +10,24 @@ import UIKit
 
 class ArticleViewController: BaseViewController {
 
+    var articleViewModel = ArticleViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.bindViewModel(viewModel: ArticleViewModel(), controller: self)
-        self.setUpTableView(style: .grouped, cells: [ReCommendTableViewCell.self,ArticleHeaderTableViewCell.self], controller: self)
+        self.bindViewModel(viewModel: articleViewModel, controller: self)
+        self.setUpTableView(style: .plain, cells: [ArticleCategoryTableViewCell.self,ArticleHeaderTableViewCell.self], controller: self)
         self.updateTableView()
+        self.setUpRefreshData {
+            self.articleViewModel.page = 1
+            self.articleViewModel.requestData()
+        }
+        self.setUpLoadMoreData(refresh: {
+            if self.articleViewModel.page == self.articleViewModel.total_page {
+                self.stopLoadMoreData()
+                return
+            }
+            self.articleViewModel.page = self.articleViewModel.page + 1
+            self.articleViewModel.requestData()
+        })
         // Do any additional setup after loading the view.
     }
     

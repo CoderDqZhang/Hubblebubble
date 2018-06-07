@@ -39,10 +39,8 @@ class BaseNetWorke {
         return Signal.init({ (subscriber, liftTime) in
             self.httpRequest(.get, url: url, parameters: parameters, success: { (responseObject) in
                 print(responseObject)
-                if (responseObject as! NSDictionary).object(forKey: "code")! as! Int == 0 {
-                    if (responseObject as! NSDictionary).object(forKey: "data") != nil {
-                        subscriber.send(value: (responseObject as! NSDictionary).object(forKey: "data") ?? "")
-                    }
+                if (responseObject as! NSDictionary).object(forKey: "code")! as! String == "0" {
+                    subscriber.send(value: (responseObject as! NSDictionary))
                 }
                 subscriber.sendCompleted()
             }, failure: { (responseError) in
@@ -64,12 +62,10 @@ class BaseNetWorke {
     func postUrlWithString(_ url:String, parameters:AnyObject?) -> Signal<Any, NSError> {
         return Signal.init({ (subscriber, liftTime) in
             self.httpRequest(.post, url: url, parameters: parameters, success: { (responseObject) in
-                if (responseObject as! NSDictionary).object(forKey: "code")! as! Int == 0 {
-                    if (responseObject as! NSDictionary).object(forKey: "data") != nil {
-                        subscriber.send(value: (responseObject as! NSDictionary).object(forKey: "data") ?? "")
-                    }
+                if (responseObject as! NSDictionary).object(forKey: "code")! as! String == "0" {
+                    subscriber.send(value: (responseObject as! NSDictionary))
                 }else{
-                    _ = Tools.shareInstance.showMessage(KWINDOWDS(), msg: (responseObject as! NSDictionary).object(forKey: "message") as! String, autoHidder: true)
+//                    _ = Tools.shareInstance.showMessage(KWINDOWDS(), msg: (responseObject as! NSDictionary).object(forKey: "message") as! String, autoHidder: true)
                 }
                 subscriber.sendCompleted()
                 }, failure: { (responseError) in
@@ -93,12 +89,10 @@ class BaseNetWorke {
     func putUrlWithString(_ url:String, parameters:AnyObject?) -> Signal<Any, NSError> {
         return Signal.init({ (subscriber, liftTime) in
             self.httpRequest(.put, url: url, parameters: parameters, success: { (responseObject) in
-                if (responseObject as! NSDictionary).object(forKey: "code")! as! Int == 0 {
-                    if (responseObject as! NSDictionary).object(forKey: "data") != nil {
-                        subscriber.send(value: (responseObject as! NSDictionary).object(forKey: "data") ?? "")
-                    }
+                if (responseObject as! NSDictionary).object(forKey: "code")! as! String == "0" {
+                    subscriber.send(value: (responseObject as! NSDictionary))
                 }else{
-                    _ = Tools.shareInstance.showMessage(KWINDOWDS(), msg: (responseObject as! NSDictionary).object(forKey: "message") as! String, autoHidder: true)
+//                    _ = Tools.shareInstance.showMessage(KWINDOWDS(), msg: (responseObject as! NSDictionary).object(forKey: "message") as! String, autoHidder: true)
                 }
                 subscriber.sendCompleted()
                 }, failure: { (responseError) in
@@ -121,12 +115,10 @@ class BaseNetWorke {
     func deleteUrlWithString(_ url:String, parameters:AnyObject?) -> Signal<Any, NSError> {
         return Signal.init({ (subscriber, liftTime) in
             self.httpRequest(.delete, url: url, parameters: parameters, success: { (responseObject) in
-                if (responseObject as! NSDictionary).object(forKey: "code")! as! Int == 0 {
-                    if (responseObject as! NSDictionary).object(forKey: "data") != nil {
-                        subscriber.send(value: (responseObject as! NSDictionary).object(forKey: "data") ?? "")
-                    }
+                if (responseObject as! NSDictionary).object(forKey: "code")! as! String == "0" {
+                    subscriber.send(value: (responseObject as! NSDictionary))
                 }else{
-                    _ = Tools.shareInstance.showMessage(KWINDOWDS(), msg: (responseObject as! NSDictionary).object(forKey: "message") as! String, autoHidder: true)
+//                    _ = Tools.shareInstance.showMessage(KWINDOWDS(), msg: (responseObject as! NSDictionary).object(forKey: "message") as! String, autoHidder: true)
                 }
                 subscriber.sendCompleted()
                 }, failure: { (responseError) in
@@ -166,16 +158,16 @@ class BaseNetWorke {
                         if response.result.value != nil {
                             if response.response?.statusCode == 200 || response.response?.statusCode == 201 {
                                 let dic = jsonStringToDic(response.result.value!)
-                                if dic.object(forKey: "code") as! Int == 0 {
+                                if dic.object(forKey: "code") as! String == "0" {
                                     subscriber.send(value: dic.object(forKey: "data") as Any)
                                 }else{
-                                    _ = Tools.shareInstance.showMessage(KWINDOWDS(), msg: dic.object(forKey: "message") as! String, autoHidder: true)
+//                                    _ = Tools.shareInstance.showMessage(KWINDOWDS(), msg: dic.object(forKey: "message") as! String, autoHidder: true)
                                 }
                             }else{
-                                _ = Tools.shareInstance.showMessage(KWINDOWDS(), msg: "上传失败", autoHidder: true)
+//                                _ = Tools.shareInstance.showMessage(KWINDOWDS(), msg: "上传失败", autoHidder: true)
                             }
                         }else{
-                            _ = Tools.shareInstance.showMessage(KWINDOWDS(), msg: "上传失败", autoHidder: true)
+//                            _ = Tools.shareInstance.showMessage(KWINDOWDS(), msg: "上传失败", autoHidder: true)
                         }
                         if hud != nil {
                             hud?.hide(animated: true)
@@ -188,7 +180,7 @@ class BaseNetWorke {
                     if hud != nil {
                         Tools.shareInstance.hiddenLoading(hud: hud!)
                     }
-                    _ = Tools.shareInstance.showMessage(KWINDOWDS(), msg: "上传失败", autoHidder: true)
+//                    _ = Tools.shareInstance.showMessage(KWINDOWDS(), msg: "上传失败", autoHidder: true)
                     subscriber.sendCompleted()
                 }
             }
@@ -213,14 +205,20 @@ class BaseNetWorke {
             default:
                 methods = HTTPMethod.put
         }
-        let headers:HTTPHeaders? = [:]
-        var encod:ParameterEncoding? = PropertyListEncoding.default
+        let headers:HTTPHeaders? = [
+            "content-type": "application/x-www-form-urlencoded",
+            "cache-control": "no-cache",
+            "postman-token": "303c9df6-22ab-8411-8baf-0ff9a6aeb424"
+        ]
+        if UserInfoModel.isLoggedIn() {
+//            (parameters as! [String:Any]). .addEntries(from: ["user_id":UserInfoModel.shareInstance.user_id!])
+        }
+        let encod:ParameterEncoding? = URLEncoding.default
         print("\(url)===============\(String(describing: parameters))==================\(String(describing: headers))")
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Alamofire.request(url, method: methods , parameters: parameters as? [String: Any], encoding: encod!, headers: headers).responseString(completionHandler: { (response) in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             print(response)
-            //            NetWorkingResponse.sharedInstance.showNetWorkingResPonse(response as AnyObject)
             if response.result.error != nil{
                 failure(response.result.error! as AnyObject)
             }else{

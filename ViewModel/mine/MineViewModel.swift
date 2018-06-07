@@ -11,7 +11,7 @@ import UIKit
 class MineViewModel: BaseViewModel {
 
     var titles = [["我的红包"],["我的收藏","浏览记录"],["把泡椒推荐给朋友"],["帮助中心","意见反馈"],["设置"]]
-    var images = [["我的红包"],["我的收藏","浏览记录"],["把泡椒推荐给朋友"],["帮助中心","意见反馈"],["设置"]]
+    var images = [["红包"],["收藏","浏览记录"],["分享"],["帮助","意见反馈"],["设置"]]
     override init() {
         
     }
@@ -22,7 +22,7 @@ class MineViewModel: BaseViewModel {
     
     func tableViewGloabImageTitleAndRightCellSetData(_ indexPath:IndexPath, cell:GloabImageTitleAndRightCell) {
         //images[indexPath.section - 1][indexPath.row]
-        cell.setData(UIImage.init(named: "产品")!, titles[indexPath.section - 1][indexPath.row])
+        cell.setData(UIImage.init(named: images[indexPath.section - 1][indexPath.row])!, titles[indexPath.section - 1][indexPath.row])
     }
     
     func tableViewDidSelect(_ indexPath:IndexPath){
@@ -33,9 +33,9 @@ class MineViewModel: BaseViewModel {
             NavigationPushView(self.controller!, toConroller: RedViewController())
         case 2:
             if indexPath.row == 0{
-                NavigationPushView(self.controller!, toConroller: ColloectPagerController())
+                NavigationPushView(self.controller!, toConroller: CollectViewController())
             }else{
-                NavigationPushView(self.controller!, toConroller: HistoryPagerController())
+                NavigationPushView(self.controller!, toConroller: HistoryViewController())
             }
         case 3:
             let model = ShareModel.init()

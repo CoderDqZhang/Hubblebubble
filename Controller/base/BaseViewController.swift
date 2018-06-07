@@ -13,6 +13,8 @@ import MJRefresh
 import DZNEmptyDataSet
 import FDFullscreenPopGesture
 
+typealias refresh = () -> Void
+
 class BaseViewController: UIViewController {
 
     var tableView:UITableView!
@@ -101,9 +103,9 @@ class BaseViewController: UIViewController {
         tableView.frame = frame
     }
     
-    func setUpRefreshData(refresh:MJRefreshNormalHeader){
+    func setUpRefreshData(refresh:@escaping refresh){
         self.tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
-            refresh
+            refresh()
         })
     }
     
@@ -111,9 +113,9 @@ class BaseViewController: UIViewController {
         self.tableView.mj_header.endRefreshing()
     }
     
-    func setUpLoadMoreData(refresh:MJRefreshNormalHeader){
+    func setUpLoadMoreData(refresh: @escaping refresh){
         self.tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
-            refresh
+            refresh()
         })
     }
     

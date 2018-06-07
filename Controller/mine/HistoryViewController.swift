@@ -10,19 +10,36 @@ import UIKit
 
 class HistoryViewController: BaseViewController {
 
+    var historyArtcleViewModel = HistoryArtcleViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.bindViewModel(viewModel: HistoryGoodsViewModel(), controller: self)
+        self.bindViewModel(viewModel: historyArtcleViewModel, controller: self)
         self.setUpTableView(style: .grouped, cells: [HistoryArticleTableViewCell.self], controller: self)
-        self.updateTableView()
-        // Do any additional setup after loading the view.
-    }
-    
-    func updateTableView() {
-        self.tableView.snp.updateConstraints { (make) in
-            make.top.equalTo(self.view.snp.top).offset(IPHONEX ? -24:0)
+        
+        self.setUpRefreshData {
+            self.historyArtcleViewModel.page = 1
+            self.historyArtcleViewModel.requestHistory()
         }
+        self.setUpLoadMoreData {
+            if self.historyArtcleViewModel.page == self.historyArtcleViewModel.total_page{
+                self.stopLoadMoreData()
+                return
+            }else{
+                self.historyArtcleViewModel.page = self.historyArtcleViewModel.page + 1
+            }
+            self.historyArtcleViewModel.requestHistory()
+        }
+        
+        self.tableView.snp.makeConstraints { (make) in
+            make.bottom.equalTo(self.view.snp.bottom).offset(0)
+            make.left.equalTo(self.view.snp.left).offset(0)
+            make.right.equalTo(self.view.snp.right).offset(0)
+            make.top.equalTo(self.view.snp.top).offset(149)
+        }
+        
+        self.setNavigationTitle(title: "浏览记录")
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

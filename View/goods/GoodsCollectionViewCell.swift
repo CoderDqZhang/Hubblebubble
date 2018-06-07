@@ -53,6 +53,19 @@ class GoodsCollectionViewCell: UICollectionViewCell {
         self.updateConstraints()
     }
     
+    func cellSetData(model:ItemList){
+        UIImageViewManger.sd_imageView(url: model.cover, imageView: postImage, placeholderImage: nil) { (image, error, cacheType, url) in
+            
+        }
+        titleLabel.text = model.title
+        muchberLabel.text = "￥\(model.price!)"
+        buyButton.reactive.controlEvents(.touchUpInside).observe { (button) in
+            if model.tbItemUrl != nil && model.tbItemUrl != "" {
+                SHARE_APPLICATION.openURL(URL.init(string: model.tbItemUrl)!)
+            }
+        }
+    }
+    
     override func updateConstraints() {
         if !didMakeConstraints {
             postImage.snp.makeConstraints({ (make) in

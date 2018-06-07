@@ -11,17 +11,43 @@ import UIKit
 class GoodsPagerViewController: TYTabButtonPagerController {
 
     var index:Int = 0
-    var pageTitle = ["热门","美鞋","上衣","热裤","裙子","短袖","袜子"]
-    var controllers = [GoodsViewController(),GoodsViewController(),GoodsViewController(),GoodsViewController(),GoodsViewController(),GoodsViewController(),GoodsViewController(),]
+    var pageTitle:[String] = []
+    var category = NSMutableArray.init()
+    var controllers:[BaseViewController] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "美文"
+        self.navigationItem.title = "美物"
         self.setUpNavigationItem()
         self.setUpPageViewControllerStyle()
         self.setUpView()
         self.bindViewModel()
+        self.requestData()
         // Do any additional setup after loading the view.
+    }
+    
+    func requestData(){
+        let url = "\(ROOT_URL)\(GOODS_LIST_CATEGORY)"
+        let parameters = ["page":1]
+        BaseNetWorke.sharedInstance.postUrlWithString(url, parameters: parameters as AnyObject).observe { (resultDic) in
+            if !resultDic.isCompleted{
+                self.category = NSMutableArray.init(array: (resultDic.value as! NSDictionary).object(forKey: "category_list") as! [Any])
+                for i in 0...self.category.count - 1 {
+                    let model = CategoryGoods.init(fromDictionary: self.category[i] as! NSDictionary)
+                    self.pageTitle.append(model.name)
+                    let controller = GoodsViewController()
+                    if i == 0 {
+                        controller.goodViewModel.model = GoodsModel.init(fromDictionary: resultDic.value as! NSDictionary)
+                    }else{
+                        controller.goodViewModel.model = nil
+                    }
+                    controller.goodViewModel.category = model
+                    self.controllers.append(controller)
+                }
+                self.reloadData()
+            }
+        }
     }
     
     func setUpPageViewControllerStyle(){
@@ -45,7 +71,7 @@ class GoodsPagerViewController: TYTabButtonPagerController {
     }
     
     func bindViewModel(){
-        //        viewModel.requestCategotyDic(self,index:index)
+//        goodsViewModel.requestCategotyDic(self,index:index)
     }
     
     func setUpNavigationItem() {
@@ -88,7 +114,12 @@ class GoodsPagerViewController: TYTabButtonPagerController {
     }
     
     override func pagerController(_ pagerController: TYPagerController!, transitionFrom fromIndex: Int, to toIndex: Int, animated: Bool) {
-        
+        (controllers[index] as! GoodsViewController).goodViewModel.requestData()
+//        if (controllers[index] as! GoodsViewController).goodViewModel.model == nil && (controllers[index] as! GoodsViewController).goodViewModel.category != nil || (controllers[index] as! GoodsViewController).goodViewModel.model != nil && (controllers[index] as! GoodsViewController).goodViewModel.category != nil && (controllers[index] as! GoodsViewController).goodViewModel.model.itemList.count == 0 {
+//            (controllers[index] as! GoodsViewController).goodViewModel.requestData()
+//        }else{
+//            (controllers[index] as! GoodsViewController).collectView.reloadData()
+//        }
     }
     
     override func pagerController(_ pagerController: TYPagerController!, numberFor index: Int) -> String! {

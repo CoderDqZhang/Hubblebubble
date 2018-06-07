@@ -17,6 +17,7 @@ class LoginViewController: BaseViewController {
     var loginButton:CustomTouchButton!
     
     var timeDownLabel:CountDown!
+    var loginViewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +75,7 @@ class LoginViewController: BaseViewController {
         self.senderButton.titleLabel?.font = App_Theme_PinFan_R_14_Font
         self.senderButton.reactive.controlEvents(.touchUpInside).observe { (button) in
             self.setUpCountDown()
+            self.loginViewModel.requestCode(phone: self.mobileTextField.text!)
         }
         self.senderButton.layer.insertSublayer(ColorTools.changeColor(startColor: UIColor.init(hexString: App_Theme_9FC8FC_Color), endColor: UIColor.init(hexString: App_Theme_F4A0E7_Color), frame: CGRect.init(x: 0, y: 0, width: 124, height: 44)), at: 0)
         codeView.addSubview(self.senderButton)
@@ -98,6 +100,7 @@ class LoginViewController: BaseViewController {
         }
         
         self.loginButton = CustomTouchButton.init(frame: CGRect.init(x: 0, y: 0, width: SCREENWIDTH - 52, height: 44), title: "登录", tag: 0, titleFont: App_Theme_PinFan_R_15_Font, type: CustomButtonType.withBackBoarder, pressClouse: { (tag) in
+            self.loginViewModel.requestLogin(phone: self.mobileTextField.text!, code: self.codeField.text!)
         })
         self.view.addSubview(self.loginButton)
         

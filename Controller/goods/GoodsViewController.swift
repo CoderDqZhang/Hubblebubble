@@ -13,6 +13,7 @@ class GoodsViewController: BaseViewController {
 
     var collectView:UICollectionView!
     var goodViewModel = GoodsViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.init(hexString: App_Theme_FFFFFF_Color)
@@ -32,17 +33,21 @@ class GoodsViewController: BaseViewController {
         collectView.register(GoodsCollectionViewCell.self, forCellWithReuseIdentifier: GoodsCollectionViewCell.description())
         collectView.register(GoodHeaderCollectionViewCell.self, forSupplementaryViewOfKind: "UICollectionElementKindSectionHeader", withReuseIdentifier: GoodHeaderCollectionViewCell.description())
         collectView.register(GoodFooterCollectionViewCell.self, forSupplementaryViewOfKind: "UICollectionElementKindSectionFooter", withReuseIdentifier: GoodFooterCollectionViewCell.description())
+        self.goodViewModel.controller = self
     }
 
     
     func setUpCollectViewRefreshData(){
         self.collectView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
-           
+           self.goodViewModel.page = 1
+           self.goodViewModel.requestData()
         })
     }
     
     func setUpCollectViewLoadMoreData(){
         self.collectView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
+            self.goodViewModel.page = self.goodViewModel.page + 1
+            self.goodViewModel.requestData()
         })
     }
     

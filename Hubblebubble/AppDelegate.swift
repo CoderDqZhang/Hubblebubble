@@ -18,8 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AppleThemeTool.setUpToolBarColor()
         AppleThemeTool.setUpKeyBoardManager()
-        let rootViewController = MainTabBarController()
-        self.window?.rootViewController = rootViewController
+        if FirstAppStartManager.getFirstAppStart() {
+            self.window?.rootViewController = GuideViewController()
+        }else{
+            let rootViewController = MainTabBarController()
+            self.window?.rootViewController = rootViewController
+        }
         self.window?.makeKeyAndVisible()
         
         return true

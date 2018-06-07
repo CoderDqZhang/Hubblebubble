@@ -9,22 +9,103 @@
 import UIKit
 
 class DetailViewModel: BaseViewModel {
+    
+    var article:Recommod!
+    var articleInfo:ArticleInfo!
+    var comments:NSMutableArray = NSMutableArray.init()
+    var page:Int = 1
+    var total_page:Int!
+    var detailModel:ArticleDetailModel!
+    
     override init() {
         super.init()
     }
     
     func tableViewCommondTableViewCellSetData(_ indexPath:IndexPath, cell:CommondTableViewCell) {
-        cell.setData(username: "昵称", image: UIImage.init(named: "2.jpg")!, content: "他将成为仅次于马化腾、马云、李嘉诚的中国第四大富豪，几位联合创始人的身家也将普遍超过10亿美元（约合人民币63亿元），可能有上千名员工成为千万富翁。")
+//        cell.setData(username: "昵称", image: UIImage.init(named: "2.jpg")!, content: "他将成为仅次于马化腾、马云、李嘉诚的中国第四大富豪，几位联合创始人的身家也将普遍超过10亿美元（约合人民币63亿元），可能有上千名员工成为千万富翁。")
     }
     
     func tableViewArticelDescTableViewCellSetData(_ indexPath:IndexPath, cell:ArticelDescTableViewCell) {
-        cell.setData(title: "小米造富神话虚实:平均年薪16万 470亿元期权咋分", desc: "如果能实现1000亿市值的目标，那么仅算小米公司持股，小米集团创始人、董事会主席兼首席执行官雷军的财富就将达到314亿美元（约合人民币1992亿元），他将成为仅次于马化腾、马云、李嘉诚的中国第四大富豪，几位联合创始人的身家也将普遍超过10亿美元（约合人民币63亿元），可能有上千名员工成为千万富翁。\n\n小米离职员工高磊（化名）告诉澎湃新闻（www.thepaper.cn）记者，2012年初前入职的工号1000以内且仍然在职的部分小米员工，才可能财富自由，“一些超级大股东可能每个人持有几百万份小米股票。\n\n对更多的普通员工来说，能否熬过公司早年的创业期，抵御随后的行权诱惑，都是问题。", authon: "网易新闻", date: "05-1108:42", image: UIImage.init(named: "1.jpg")!, red: "阅读量：10000")
+        if self.detailModel != nil {
+            cell.cellsetData(model: self.detailModel)
+        }
     }
     
     func tableViewDidSelect(_ indexPath:IndexPath) {
         
     }
     
+    func requestData(){
+        let url = "\(ROOT_URL)\(ARTICLE_INFO)"
+        let parameters = ["article_id":article.id]
+        BaseNetWorke.sharedInstance.postUrlWithString(url, parameters: parameters as AnyObject).observe { (resultDic) in
+            if !resultDic.isCompleted{
+                self.detailModel = ArticleDetailModel.init(fromDictionary: (resultDic.value as! NSDictionary))
+                self.controller?.tableView.reloadData()
+            }
+        }
+    }
+    
+    func requestCommondData(){
+        let url = "\(ROOT_URL)\(ARTICLE_COMMENTS)"
+        let parameters = ["article_id":article.id,"page":self.page] as [String : Any]
+        BaseNetWorke.sharedInstance.postUrlWithString(url, parameters: parameters as AnyObject).observe { (resultDic) in
+            if !resultDic.isCompleted{
+                if self.page == 1 {
+                    self.total_page = (resultDic.value! as! NSDictionary).object(forKey: "total_page") as! Int
+                    self.comments.removeAllObjects()
+                    self.comments = NSMutableArray.init(array: (resultDic.value as! NSDictionary).object(forKey: "article_list") as! [Any])
+                    if self.controller?.tableView.mj_header != nil {
+                        self.controller?.stopRefresh()
+                    }
+                }else{
+                    self.comments.addObjects(from:NSMutableArray.init(array: (resultDic.value as! NSDictionary).object(forKey: "article_list") as! [Any]) as! [Any])
+                    if self.controller?.tableView.mj_footer != nil {
+                        self.controller?.stopLoadMoreData()
+                    }
+                }
+                self.controller?.tableView.reloadData()
+            }
+        }
+    }
+    
+    func requestCommonds(str:String?){
+        let url = "\(ROOT_URL)\(ADD_ARTICLE_COMMENTS)"
+        var parameters:AnyObject?
+        if !UserInfoModel.isLoggedIn() {
+            parameters = ["user_id":UserInfoModel.shareInstance.user_id,"article_id":self.detailModel.articleInfo.id,"content":str] as AnyObject
+        }else{
+            parameters = ["article_id":self.detailModel.articleInfo.id,"content":str] as AnyObject
+        }
+        BaseNetWorke.sharedInstance.postUrlWithString(url, parameters: parameters as AnyObject).observe { (resultDic) in
+            
+        }
+    }
+    
+    func requestArticleStatus(type:BottomViewType){
+        var url = ""
+        if type == .parase {
+            url = "\(ROOT_URL)\(ARTICLE_ADD_LIKE)"
+        }else if type == .collect {
+            url = "\(ROOT_URL)\(ARTICLE_ADD_COLLECT)"
+        }else{
+            let model = ShareModel.init()
+            model.title = "dd"
+            model.desc = "ddd"
+            model.imageUrl = "ddd"
+            model.url = "ddd"
+            KWINDOWDS().addSubview(ShareView.init(title: "title", model: model, image: nil, url: nil))
+            return
+        }
+        if !UserInfoModel.isLoggedIn() {
+            self.controller?.navigationController?.pushViewController(LoginViewController())
+            return
+        }
+        let parameters = ["user_id":UserInfoModel.shareInstance.user_id,"article_id":self.detailModel.articleInfo.id,"action":"add"]
+        BaseNetWorke.sharedInstance.postUrlWithString(url, parameters: parameters as AnyObject).observe { (resultDic) in
+            
+        }
+    }
 }
 
 extension DetailViewModel: UITableViewDelegate {
@@ -61,7 +142,7 @@ extension DetailViewModel: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.comments.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -50,6 +50,14 @@ class HistoryArticleTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func cellSetData(_ model:Recommod){
+        UIImageViewManger.sd_imageView(url: model.cover, imageView: self.postImage, placeholderImage: nil) { (image, error, cacheType, url) in
+            
+        }
+        titleLabel.text = model.title
+        numberRead.text = "阅读量:\(model.pv!)"
+        dateLabel.text = "日期：\(model.publish!)"
+    }
     
     override func updateConstraints() {
         if !didMakeConstraints {
